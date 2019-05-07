@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfiliDuzenleFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextProfiliDuzenleAd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="AD" />
+
+        <EditText
+            android:id="@+id/editTextProfiliDuzenleSoyad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="SOYAD" />
+
+        <EditText
+            android:id="@+id/editTextProfiliDuzenleEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="EMAIL" />
+
+        <EditText
+            android:id="@+id/editTextProfiliDuzenleTelefon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="TELEFON" />
+
+        <EditText
+            android:id="@+id/editTextProfiliDuzenleKullaniciadi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="KULLANICI ADI" />
+
+        <EditText
+            android:id="@+id/editTextProfiliDuzenleSifre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="ŞİFRE" />
+
+        <EditText
+            android:id="@+id/editTextProfiliDuzenleGuvenlikCevap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="GÜVENLİK CEVAP" />
+
+        <Button
+            android:id="@+id/buttonProfiliDuzenleGuncelle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GÜNCELLE" />
+
+    </LinearLayout>
+</FrameLayout>

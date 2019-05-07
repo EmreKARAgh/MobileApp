@@ -1,0 +1,72 @@
+<resources>
+
+    <string name="app_name">MobileApp</string>
+    <string name="title_activity_test1">test1</string>
+    <string name="title_anasayfa">Anasayfa</string>
+    <string name="title_bagislar">Bağışlar</string>
+    <string name="title_profil">Profil</string>
+    <string name="title_kurumlar">Kurumlar</string>
+
+    <string name="buttonUygulamaGirisKayitol">KAYIT OL</string>
+    <string name="buttonUygulamaGirisGiris">GİRİŞ</string>
+    <string name="textviewGirisKullaniciadi">KULLANICI ADI :</string>
+    <string name="texttiewGirisSifre">ŞİFRE :</string>
+    <string name="buttonGirisGiris">GİRİŞ</string>
+    <string name="buttonGirisSifremiunuttum">Şifremi Unuttum</string>
+    <string name="textviewSifremiUnuttumGuvenliksorusu">GÜVENLİK SORUSU :</string>
+    <string name="texttiewSifremiUnuttumGuvenlikcevabi">GUVENLİK SORUSU CEVABI :</string>
+    <string name="buttonSifremiUnuttumGonder">GÖNDER</string>
+    <string name="textviewBireyselKaydolFotograf">FOTOĞRAF :</string>
+    <string name="textviewBireyselKaydolAd">AD :</string>
+    <string name="textviewBireyselKaydolSoyad">SOYAD :</string>
+    <string name="textviewBireyselKaydolEmail">E-MAİL* :</string>
+    <string name="textviewBireyselKaydolAdres">ADRES :</string>
+    <string name="textviewBireyselKaydolTelefon">TELEFON :</string>
+    <string name="textviewBireyselKaydolKullaniciadi">KULLANICI ADI :</string>
+    <string name="textviewBireyselKaydolSifre">ŞİFRE* :</string>
+    <string name="textviewBireyselKaydolGuvenliksorusu">GÜVENLİK SORUSU :</string>
+    <string name="textviewBireyselKaydolGuvenlikcevabi">GÜVENLİK SORUSU CEVABI :</string>
+    <string name="textviewBireyselKaydolSosyalmedya">SOSYAL MEDYA :</string>
+    <string name="buttonBireyselKaydolKayitol">KAYIT OL</string>
+    <string name="buttonKayitOlBireyselkayitol">BİREYSEL KAYIT OL</string>
+    <string name="buttonKayitOlKurumsalkayitol">KURUMSAL KAYIT OL</string>
+    <string name="textviewKurumsalKaydolKurumadi">KURUM ADI :</string>
+    <string name="textviewKurumsalKaydolFotograf">FOTOĞRAF :</string>
+    <string name="textviewKurumsalKaydolKurumno">KURUM NO :</string>
+    <string name="textviewKurumsalKaydolEmail">E-MAİL:</string>
+    <string name="textviewKurumsalKaydolAdres">ADRES :</string>
+    <string name="textviewKurumsalKaydolTelefon">TELEFON :</string>
+    <string name="textviewKurumsalKaydolSifre">ŞİFRE :</string>
+    <string name="textviewKurumsalKaydolSosyalmedya">SOSYAL MEDYA :</string>
+    <string name="buttonKurumsalKaydolKayitol">KAYIT OL</string>
+    <string-array name="spinnerGiris">
+        <item>Bireysel</item>
+        <item>Kurumsal</item>
+    </string-array>
+    <string-array name="spinnerSifremiUnuttum">
+        <item>Bireysel</item>
+        <item>Kurumsal</item>
+    </string-array>
+    <string name="imageviewKurumlarDetay">imageviewKurumlarDetay</string>
+    <string name="textviewKurumDetayKurumayrintisi">KURUM AYRINTISI :</string>
+    <string name="textviewKurumDetaySosyalmedya">KURUM SOSYAL MEDYA :</string>
+    <string name="textviewKurumDetayIstatistikler">İSTATİSLİKLER :</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hakkinda">Hakkında</string>
+    <string name="buttonBireyselKaydolFotograf">FOTOĞRAF YÜKLE</string>
+    <string name="buttonKurumsalKaydolFotograf">FOTOĞRAF EKLE</string>
+    <string name="buttondeneme">Button</string>
+    <string name="buttonBagisOlusturFotograf">FOTOĞRAF EKLE</string>
+    <string name="textviewBagisOlusturBaslik">BAĞIŞ :</string>
+    <string name="textviewBagisOlusturFotograf">FOTOĞRAF :</string>
+    <string name="textviewBagisOlusturBilgi">BİLGİ :</string>
+    <string name="textviewBagisOlusturKurum">KURUM :</string>
+    <string name="textviewBagisOlusturOzet">ÖZET :</string>
+    <string name="buttonBagisOlusturEkle">EKLE</string>
+    <string name="buttonProfilBagislarim">BAĞIŞLARIM</string>
+    <string name="textviewSifremiUnuttumEmail">Email :</string>
+    <string name="textViewSifremiUnuttum">Şifremi Unuttum</string>
+
+
+</resources>

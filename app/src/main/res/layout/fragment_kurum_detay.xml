@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KurumDetayFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearlayoutKurumDetay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageviewKurumDetay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/imageviewKurumlarDetay"
+                tools:src="@tools:sample/avatars[2]" />
+
+            <TextView
+                android:id="@+id/textviewKurumDetayKurumadi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="KURUM ADI" />
+
+            <TextView
+                android:id="@+id/textviewKurumDetayKurumayrintisi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textviewKurumDetayKurumayrintisi" />
+
+            <TextView
+                android:id="@+id/textviewKurumDetayKurumayrintisiveri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textviewKurumDetaySosyalmedya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textviewKurumDetaySosyalmedya" />
+
+            <TextView
+                android:id="@+id/textviewKurumDetaySosyalmedyaveri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textviewKurumDetayIstatistikler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textviewKurumDetayIstatistikler" />
+
+            <TextView
+                android:id="@+id/textviewKurumDetayIstatistiklerveri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/buttonKurumDetayBagislar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BAĞIŞLAR" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
