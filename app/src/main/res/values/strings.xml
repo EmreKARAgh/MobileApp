@@ -48,9 +48,9 @@
         <item>Kurumsal</item>
     </string-array>
     <string name="imageviewKurumlarDetay">imageviewKurumlarDetay</string>
-    <string name="textviewKurumDetayKurumayrintisi">KURUM AYRINTISI :</string>
+    <string name="textviewKurumDetayKurumAdres">KURUM ADRESİ :</string>
     <string name="textviewKurumDetaySosyalmedya">KURUM SOSYAL MEDYA :</string>
-    <string name="textviewKurumDetayIstatistikler">İSTATİSLİKLER :</string>
+    <string name="textviewKurumDetayTelefon">KURUM TELEFONU :</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hakkinda">Hakkında</string>

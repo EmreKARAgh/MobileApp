@@ -8,8 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +22,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -162,26 +160,45 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
     }
 
     public void dbBagisEkleBireysel(Bagis gelenBagis){
-        DatabaseReference yazBagislar =db.getReference().child("Bagislar");
-        final DatabaseReference kullanici = db.getReference().child("Kullanicilar").child("Bireysel").child(user.getUid()).child("BagislarimFragment");
-        bagisKey = yazBagislar.push().getKey();
-        gelenBagis.setKullaniciKey(user.getUid());
-        gelenBagis.setResimKey(bagisKey);
-        yazBagislar.child(bagisKey).setValue(gelenBagis);
-        kullanici.child(bagisKey).setValue("0");
+        try{
+            DatabaseReference yazBagislar =db.getReference().child("Bagislar");
+            final DatabaseReference kullanici = db.getReference().child("Kullanicilar").child("Bireysel").child(user.getUid()).child("BagislarimFragment");
+            bagisKey = yazBagislar.push().getKey();
+            gelenBagis.setKullaniciKey(user.getUid());
+            gelenBagis.setResimKey(bagisKey);
+            yazBagislar.child(bagisKey).setValue(gelenBagis);
+            kullanici.child(bagisKey).setValue("0");
+            Toast.makeText(getContext(),"Bağış başarıyla eklendi",Toast.LENGTH_SHORT).show();
+            final BagislarimFragment bagislarimFragment = new BagislarimFragment();
+            setFragment(bagislarimFragment);
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(getContext(),"Bağış eklenemedi lütfen yeniden deneyin.",Toast.LENGTH_SHORT).show();
+        }
+
+
 
     }
     public void dbBagisEkleKurumsal(Bagis gelenBagis){
-        DatabaseReference yazBagislar =db.getReference().child("Bagislar");
-        final DatabaseReference kullanici = db.getReference().child("Kullanicilar").child("Kurumsal").child(user.getUid()).child("BagislarimFragment");
-        bagisKey = yazBagislar.push().getKey();
-        gelenBagis.setKullaniciKey(user.getUid());
-        gelenBagis.setResimKey(bagisKey);
-        yazBagislar.child(bagisKey).setValue(gelenBagis);
-        kullanici.child(bagisKey).setValue("0");
-
+        try {
+            DatabaseReference yazBagislar =db.getReference().child("Bagislar");
+            final DatabaseReference kullanici = db.getReference().child("Kullanicilar").child("Kurumsal").child(user.getUid()).child("BagislarimFragment");
+            bagisKey = yazBagislar.push().getKey();
+            gelenBagis.setKullaniciKey(user.getUid());
+            gelenBagis.setResimKey(bagisKey);
+            yazBagislar.child(bagisKey).setValue(gelenBagis);
+            kullanici.child(bagisKey).setValue("0");
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(getContext(),"Bağış eklenemedi lütfen yeniden deneyin.",Toast.LENGTH_SHORT).show();
+        }
     }
-
+    private void setFragment(Fragment fragment){
+        FragmentTransaction fragmentTransaction= getFragmentManager().beginTransaction();
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.frame,fragment);
+        fragmentTransaction.commit();
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

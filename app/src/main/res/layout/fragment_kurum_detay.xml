@@ -33,17 +33,6 @@
                 android:text="KURUM ADI" />
 
             <TextView
-                android:id="@+id/textviewKurumDetayKurumayrintisi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/textviewKurumDetayKurumayrintisi" />
-
-            <TextView
-                android:id="@+id/textviewKurumDetayKurumayrintisiveri"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
                 android:id="@+id/textviewKurumDetaySosyalmedya"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,13 +44,24 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/textviewKurumDetayIstatistikler"
+                android:id="@+id/textviewKurumDetayTelefon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumDetayIstatistikler" />
+                android:text="@string/textviewKurumDetayTelefon" />
 
             <TextView
-                android:id="@+id/textviewKurumDetayIstatistiklerveri"
+                android:id="@+id/textviewKurumDetayTelefonVeri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textviewKurumDetayKurumAdres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textviewKurumDetayKurumAdres" />
+
+            <TextView
+                android:id="@+id/textviewKurumDetayKurumAdresiVeri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

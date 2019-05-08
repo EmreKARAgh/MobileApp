@@ -1,6 +1,8 @@
 package com.example.mobileapp;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +15,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 /**
@@ -76,16 +83,18 @@ public class KurumDetayFragment extends Fragment {
         // Inflate the layout for this fragment
         View RootView = inflater.inflate(R.layout.fragment_kurum_detay,container,false);
 
-        imageviewKurumDetay = (ImageView) RootView.findViewById(R.id.imageviewKurumDetay);//Fotoyu tut
         textviewKurumDetayAd=(TextView)RootView.findViewById(R.id.textviewKurumDetayKurumadi);
         textviewKurumDetayAd.setText(kurum.getKurumAdi());
-        TextView textviewKurumDetayKurumayrintisiveri = (TextView) RootView.findViewById(R.id.textviewKurumDetayKurumayrintisiveri);
+        TextView textviewKurumDetayKurumAdresiVeri  = (TextView) RootView.findViewById(R.id.textviewKurumDetayKurumAdresiVeri);
+        textviewKurumDetayKurumAdresiVeri.setText(this.kurum.getAdres());
 
         TextView textviewKurumDetaySosyalmedyaveri = (TextView) RootView.findViewById(R.id.textviewKurumDetaySosyalmedyaveri);
+        textviewKurumDetaySosyalmedyaveri.setText(this.kurum.getSosyalMedya());
 
-        TextView textviewKurumDetayIstatistiklerveri = (TextView) RootView.findViewById(R.id.textviewKurumDetayIstatistiklerveri);
+        TextView textviewKurumDetayTelefonVeri = (TextView) RootView.findViewById(R.id.textviewKurumDetayTelefonVeri);
+        textviewKurumDetayTelefonVeri.setText(this.kurum.getTelefon());
 
-        LinearLayout linearlayoutKurumDetay = (LinearLayout) RootView.findViewById(R.id.linearlayoutKurumDetay);
+        //LinearLayout linearlayoutKurumDetay = (LinearLayout) RootView.findViewById(R.id.linearlayoutKurumDetay);
         buttonKurumDetayBagislar=(Button)RootView.findViewById(R.id.buttonKurumDetayBagislar);
         buttonKurumDetayBagislar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,12 +105,25 @@ public class KurumDetayFragment extends Fragment {
                 setFragment(kurumBagislarFragment);
             }
         });
+        imageviewKurumDetay = (ImageView) RootView.findViewById(R.id.imageviewKurumDetay);//Fotoyu tut
+        if(this.kurum.getResimKey() != null){
+            StorageReference storageReferance  = FirebaseStorage.getInstance().getReference();
+            final StorageReference islandRef = storageReferance.child("images").child(this.kurum.getResimKey()+".jpg");
+            final long ONE_MEGABYTE = 1024 * 1024;
+            islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                @Override
+                public void onSuccess(byte[] bytes) {
+                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    KurumDetayFragment.this.imageviewKurumDetay.setImageBitmap(bmp);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle any errors
+                }
+            });
+        }
 
-        String[] buton={"Bagis-1","Bagis-2","Bagis-3","Bagis-4"};
-
-        /*for(int i = 0 ; i < 4 ; i++) {
-            linearlayoutKurumDetay.addView(new ButonOlustur(getActivity(),buton[i]));
-        }*/
 
         return RootView;
     }
