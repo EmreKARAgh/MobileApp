@@ -112,7 +112,7 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
         if(bagis.resimKey != null){
             Bitmap bmp2;
             StorageReference storageReferance  = FirebaseStorage.getInstance().getReference();
-            final StorageReference islandRef = storageReferance.child("images").child(bagis.resimKey+".jpg");
+            final StorageReference islandRef = storageReferance.child("images").child(bagis.getResimKey());
             final long ONE_MEGABYTE = 1024 * 1024;
             islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                 @Override
@@ -191,7 +191,6 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        System.out.println("gelen context = " + context.toString());
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {

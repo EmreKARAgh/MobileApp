@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 
 
@@ -79,15 +80,14 @@ public class BagislarimFragment extends Fragment {
         }
     }
 
-    public void verileriCekBireysel(){
+    public void verileriCek(){
         DatabaseReference okuBagislarim;
         try {
-            okuBagislarim = db.getReference().child("Kullanicilar").child("Bireysel").child(user.getUid()).child("BagislarimFragment");
+            okuBagislarim = db.getReference().child("Kullanicilar").child(Anasayfa.kullaniciTipi).child(user.getUid()).child("Bagislarim");
         }catch (Exception e){
             e.printStackTrace();
             return;
         }
-
         //okuBagislarim.addChildEventListener(myListener);
 
         okuBagislarim.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -100,51 +100,36 @@ public class BagislarimFragment extends Fragment {
                 String[] strings = (String[]) myMap.keySet().toArray(new String[myMap.size()]);
 
 
-
                 for (int i = 0; i < strings.length ; i++) {
                     DatabaseReference okuBagislar = db.getReference().child("Bagislar").child(strings[i]);
                     okuBagislar.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             try {
-                                String BagisID = dataSnapshot.getKey().toString();
-                                String Baslik = dataSnapshot.child("baslik").getValue().toString();
-                                String Bilgi = dataSnapshot.child("bilgi").getValue().toString();
-                                String Kurum = dataSnapshot.child("kurum").getValue().toString();
-                                String Ozet = dataSnapshot.child("ozet").getValue().toString();
-                                String ResimKey = null;
-                                try {
-                                    ResimKey = dataSnapshot.child("resimKey").getValue().toString();
-                                }
-                                catch (Exception e){
-                                    e.printStackTrace();
-                                }
-                                if(ResimKey == null){
-                                    Bagis deneme = new Bagis(Baslik,Kurum,Bilgi,Ozet, BagisID);
-                                    ObjeKart nesne = new ObjeKart(getContext(), deneme);
-                                    linearLayoutBagislarim.addView(nesne);
-                                    nesne.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            final BagisIcerikFragment bagisIcerikFragment = new BagisIcerikFragment();
-                                            bagisIcerikFragment.bagis=((ObjeKart)view).bagis;
-                                            setFragment(bagisIcerikFragment);
-                                        }
-                                    });
-                                }
-                                else{
-                                    Bagis deneme = new Bagis(Baslik,Kurum,Bilgi,Ozet, BagisID, ResimKey);
-                                    ObjeKart nesne = new ObjeKart(getContext(), deneme);
-                                    linearLayoutBagislarim.addView(nesne);
-                                    nesne.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            final BagisimIcerikFragment bagisimIcerikFragment = new BagisimIcerikFragment();
-                                            bagisimIcerikFragment.bagis=((ObjeKart)view).bagis;
-                                            setFragment(bagisimIcerikFragment);
-                                        }
-                                    });
-                                }
+                                String bagisID = dataSnapshot.getKey().toString();
+                                String baslik = dataSnapshot.child("baslik").getValue().toString();
+                                String bilgi = dataSnapshot.child("bilgi").getValue().toString();
+                                String kurum = dataSnapshot.child("kurum").getValue().toString();
+                                String ozet = dataSnapshot.child("ozet").getValue().toString();
+                                String smsAdres = dataSnapshot.child("smsAdres").getValue().toString();
+                                String smsMetin = dataSnapshot.child("smsMetin").getValue().toString();
+                                String resimKey = dataSnapshot.child("resimKey").getValue().toString();
+
+
+                                Bagis deneme = new Bagis(baslik,bilgi,ozet, kurum, resimKey,bagisID,smsAdres,smsMetin);
+                                ObjeKart nesne = new ObjeKart(getContext(), deneme);
+                                linearLayoutBagislarim.addView(nesne);
+                                linearLayoutBagislarim.addView(new ObjeBilgi(getContext(),1));
+
+                                nesne.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        final BagisimIcerikFragment bagisimIcerikFragment = new BagisimIcerikFragment();
+                                        bagisimIcerikFragment.bagis=((ObjeKart)view).bagis;
+                                        setFragment(bagisimIcerikFragment);
+                                    }
+                                });
+
                             }catch (Exception e){
                                 e.printStackTrace();
                             }
@@ -170,97 +155,6 @@ public class BagislarimFragment extends Fragment {
 
     }
 
-    public void verileriCekKurumsal(){
-        DatabaseReference okuBagislarim;
-        try {
-            okuBagislarim = db.getReference().child("Kullanicilar").child("Kurumsal").child(user.getUid()).child("BagislarimFragment");
-        }catch (Exception e){
-            e.printStackTrace();
-            return;
-        }
-
-        //okuBagislarim.addChildEventListener(myListener);
-
-        okuBagislarim.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                HashMap myMap = (HashMap) dataSnapshot.getValue();
-                if(myMap == null){
-                    return;
-                }
-                String[] strings = (String[]) myMap.keySet().toArray(new String[myMap.size()]);
-
-
-
-                for (int i = 0; i < strings.length ; i++) {
-                    DatabaseReference okuBagislar = db.getReference().child("Bagislar").child(strings[i]);
-                    okuBagislar.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            try {
-                                String BagisID = dataSnapshot.getKey().toString();
-                                String Baslik = dataSnapshot.child("baslik").getValue().toString();
-                                String Bilgi = dataSnapshot.child("bilgi").getValue().toString();
-                                String Kurum = dataSnapshot.child("kurum").getValue().toString();
-                                String Ozet = dataSnapshot.child("ozet").getValue().toString();
-
-                                String ResimKey = null;
-                                try {
-                                    ResimKey = dataSnapshot.child("resimKey").getValue().toString();
-                                }
-                                catch (Exception e){
-                                    e.printStackTrace();
-                                }
-                                if(ResimKey == null){
-                                    Bagis deneme = new Bagis(Baslik,Kurum,Bilgi,Ozet, BagisID);
-                                    ObjeKart nesne = new ObjeKart(getContext(), deneme);
-                                    linearLayoutBagislarim.addView(nesne);
-                                    nesne.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            final BagisIcerikFragment bagisIcerikFragment = new BagisIcerikFragment();
-                                            bagisIcerikFragment.bagis=((ObjeKart)view).bagis;
-                                            setFragment(bagisIcerikFragment);
-                                        }
-                                    });
-                                }
-                                else{
-                                    Bagis deneme = new Bagis(Baslik,Kurum,Bilgi,Ozet, BagisID, ResimKey);
-                                    ObjeKart nesne = new ObjeKart(getContext(), deneme);
-                                    linearLayoutBagislarim.addView(nesne);
-                                    nesne.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            final BagisimIcerikFragment bagisimIcerikFragment = new BagisimIcerikFragment();
-                                            bagisimIcerikFragment.bagis=((ObjeKart)view).bagis;
-                                            setFragment(bagisimIcerikFragment);
-                                        }
-                                    });
-                                }
-                            }catch (Exception e){
-                                e.printStackTrace();
-                            }
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-    }
 
 
     @Override
@@ -268,8 +162,7 @@ public class BagislarimFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        verileriCekBireysel();
-        verileriCekKurumsal();
+        verileriCek();
 
         View RootView = inflater.inflate(R.layout.fragment_bagislarim, container, false);
 

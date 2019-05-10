@@ -24,7 +24,7 @@ public class ObjeGorsel extends android.support.v7.widget.AppCompatImageView  {
         else {
             Bitmap bmp2;
             StorageReference storageReferance  = FirebaseStorage.getInstance().getReference();
-            final StorageReference islandRef = storageReferance.child("images").child(resimKey+".jpg");
+            final StorageReference islandRef = storageReferance.child("images").child(resimKey);
             final long ONE_MEGABYTE = 1024 * 1024;
             this.setAdjustViewBounds(true);
             islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {

@@ -149,7 +149,7 @@ public class KurumsalKaydol extends AppCompatActivity implements View.OnClickLis
         kullaniciEkle.child(Uid).setValue(kurum);
 
         Intent Anasayfa = new Intent(KurumsalKaydol.this,Anasayfa.class);
-        com.example.mobileapp.Anasayfa.cuurentKurum = kurum;
+        com.example.mobileapp.Anasayfa.currentKurum = kurum;
         com.example.mobileapp.Anasayfa.kullaniciTipi = "Kurumsal";
         startActivity(Anasayfa);
     }

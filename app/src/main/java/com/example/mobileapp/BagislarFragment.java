@@ -88,48 +88,30 @@ public class BagislarFragment extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 try {
-                    String BagisID = dataSnapshot.getKey().toString();
-                    String Baslik = dataSnapshot.child("baslik").getValue().toString();
-                    String Bilgi = dataSnapshot.child("bilgi").getValue().toString();
-                    String Kurum = dataSnapshot.child("kurum").getValue().toString();
-                    String Ozet = dataSnapshot.child("ozet").getValue().toString();
-                    String ResimKey = null;
-                    try {
-                        ResimKey = dataSnapshot.child("resimKey").getValue().toString();
-                    }
-                    catch (Exception e){
-                        e.printStackTrace();
-                    }
-                    if(ResimKey == null){
-                        Bagis deneme = new Bagis(Baslik,Kurum,Bilgi,Ozet, BagisID);
-                        ObjeKart nesne = new ObjeKart(getContext(), deneme);
-                        linearLayoutBagislar.addView(nesne);
-                        linearLayoutBagislar.addView(new ObjeBilgi(getContext(),1));
-                        nesne.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                System.out.println(((ObjeKart)view).bagis.baslik);
-                                final BagisIcerikFragment bagisIcerikFragment = new BagisIcerikFragment();
-                                bagisIcerikFragment.bagis=((ObjeKart)view).bagis;
-                                setFragment(bagisIcerikFragment);
-                            }
-                        });
-                    }
-                    else{
-                        Bagis deneme = new Bagis(Baslik,Kurum,Bilgi,Ozet, BagisID, ResimKey);
-                        ObjeKart nesne = new ObjeKart(getContext(), deneme);
-                        linearLayoutBagislar.addView(nesne);
-                        linearLayoutBagislar.addView(new ObjeBilgi(getContext(),1));
-                        nesne.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                System.out.println(((ObjeKart)view).bagis.baslik);
-                                final BagisIcerikFragment bagisIcerikFragment = new BagisIcerikFragment();
-                                bagisIcerikFragment.bagis=((ObjeKart)view).bagis;
-                                setFragment(bagisIcerikFragment);
-                            }
-                        });
-                    }
+                    String bagisID = dataSnapshot.getKey().toString();
+                    String baslik = dataSnapshot.child("baslik").getValue().toString();
+                    String bilgi = dataSnapshot.child("bilgi").getValue().toString();
+                    String kurum = dataSnapshot.child("kurum").getValue().toString();
+                    String ozet = dataSnapshot.child("ozet").getValue().toString();
+                    String smsAdres = dataSnapshot.child("smsAdres").getValue().toString();
+                    String smsMetin = dataSnapshot.child("smsMetin").getValue().toString();
+                    String resimKey = dataSnapshot.child("resimKey").getValue().toString();
+
+                    Bagis deneme = new Bagis(baslik,bilgi,ozet, kurum, resimKey,bagisID,smsAdres,smsMetin);
+                    ObjeKart nesne = new ObjeKart(getContext(), deneme);
+                    linearLayoutBagislar.addView(nesne);
+                    linearLayoutBagislar.addView(new ObjeBilgi(getContext(),1));
+
+                    nesne.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            System.out.println(((ObjeKart)view).bagis.baslik);
+                            final BagisIcerikFragment bagisIcerikFragment = new BagisIcerikFragment();
+                            bagisIcerikFragment.bagis=((ObjeKart)view).bagis;
+                            setFragment(bagisIcerikFragment);
+                        }
+                    });
+
                 }
                 catch (Exception ex){
                     System.out.println("Bağışlar Bulunamadı.");

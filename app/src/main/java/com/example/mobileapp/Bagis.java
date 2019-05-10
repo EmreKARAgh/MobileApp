@@ -2,36 +2,61 @@ package com.example.mobileapp;
 
 public class Bagis {
     String baslik;
-    String kurum;
     String bilgi;
     String ozet;
+    String kurum;
     String kullaniciKey;
     String resimKey;
     String bagisid;
+    String smsAdres;
+    String smsMetin;
 
-
-    public Bagis(String baslik, String bilgi, String kurum, String ozet, String bagisid){
+    public Bagis(String baslik, String bilgi, String ozet, String kurum, String kullaniciKey, String resimKey, String bagisid, String smsAdres, String smsMetin) {
         this.baslik = baslik;
-        this.kurum = kurum;
         this.bilgi = bilgi;
         this.ozet = ozet;
-        this.bagisid = bagisid;
-    }
-    public Bagis(String baslik, String bilgi, String kurum, String ozet, String bagisid, String resimKey){
-        this.baslik = baslik;
         this.kurum = kurum;
-        this.bilgi = bilgi;
-        this.ozet = ozet;
-        this.bagisid = bagisid;
+        this.kullaniciKey = kullaniciKey;
         this.resimKey = resimKey;
+        this.bagisid = bagisid;
+        this.smsAdres = smsAdres;
+        this.smsMetin = smsMetin;
     }
-    public Bagis(String baslik, String bilgi, String kurum, String ozet){
+    public Bagis(String baslik, String bilgi, String ozet, String kurum, String resimKey, String bagisid, String smsAdres, String smsMetin) {
         this.baslik = baslik;
-        this.kurum = kurum;
         this.bilgi = bilgi;
         this.ozet = ozet;
+        this.kurum = kurum;
+        this.resimKey = resimKey;
+        this.bagisid = bagisid;
+        this.smsAdres = smsAdres;
+        this.smsMetin = smsMetin;
     }
 
+
+    public String getKurum() {
+        return kurum;
+    }
+
+    public void setKurum(String kurum) {
+        this.kurum = kurum;
+    }
+
+    public String getSmsAdres() {
+        return smsAdres;
+    }
+
+    public void setSmsAdres(String smsAdres) {
+        this.smsAdres = smsAdres;
+    }
+
+    public String getSmsMetin() {
+        return smsMetin;
+    }
+
+    public void setSmsMetin(String smsMetin) {
+        this.smsMetin = smsMetin;
+    }
 
     public String getBagisid() {
         return bagisid;
@@ -47,14 +72,6 @@ public class Bagis {
 
     public void setBaslik(String baslik) {
         this.baslik = baslik;
-    }
-
-    public String getKurum() {
-        return kurum;
-    }
-
-    public void setKurum(String kurum) {
-        this.kurum = kurum;
     }
 
     public String getBilgi() {

@@ -61,7 +61,8 @@
     <string name="textviewBagisOlusturBaslik">BAĞIŞ :</string>
     <string name="textviewBagisOlusturFotograf">FOTOĞRAF :</string>
     <string name="textviewBagisOlusturBilgi">BİLGİ :</string>
-    <string name="textviewBagisOlusturKurum">KURUM :</string>
+    <string name="textviewBagisOlusturSmsAdres">SMS ADRESİ :</string>
+    <string name="textviewBagisOlusturSmsMetin">SMS METNİ :</string>
     <string name="textviewBagisOlusturOzet">ÖZET :</string>
     <string name="buttonBagisOlusturEkle">EKLE</string>
     <string name="buttonProfilBagislarim">BAĞIŞLARIM</string>

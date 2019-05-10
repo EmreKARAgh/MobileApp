@@ -101,8 +101,8 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         ImageView imageViewProfilResim = (ImageView) RootView.findViewById(R.id.imageViewProfilResim);
 
         if(Anasayfa.kullaniciTipi.equals("Kurumsal") ){
-            textViewProfilAdSoyad.setText(Anasayfa.cuurentKurum.getKurumAdi());
-            ppadd(Anasayfa.cuurentKurum.resimKey,imageViewProfilResim);
+            textViewProfilAdSoyad.setText(Anasayfa.currentKurum.getKurumAdi());
+            ppadd(Anasayfa.currentKurum.resimKey,imageViewProfilResim);
         }else {
             textViewProfilAdSoyad.setText(Anasayfa.currentBirey.getAd() + "  " + Anasayfa.currentBirey.getSoyad());
             ppadd(Anasayfa.currentBirey.resimKey, imageViewProfilResim);

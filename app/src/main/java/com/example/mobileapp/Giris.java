@@ -177,7 +177,7 @@ public class Giris extends AppCompatActivity implements View.OnClickListener {
                     e.printStackTrace();
                 }
                 Kurum kurum = new Kurum(kurumAdi,adres,kurumNo,telefon,sosyalMedya, email, resimKey, Uid);
-                Anasayfa.cuurentKurum= kurum;
+                Anasayfa.currentKurum= kurum;
                 Anasayfa.kullaniciTipi = "Kurumsal";
                 Intent Anasayfa = new Intent(Giris.this,Anasayfa.class);
                 startActivity(Anasayfa);

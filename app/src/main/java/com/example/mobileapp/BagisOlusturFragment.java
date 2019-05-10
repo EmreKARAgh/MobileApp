@@ -52,6 +52,7 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
     private FirebaseAuth mAuth;
     private static final String TAG = "EmailPassword";
     FirebaseDatabase db = FirebaseDatabase.getInstance();
+    DatabaseReference yazBagislar =db.getReference().child("Bagislar");
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     // TODO: Rename parameter arguments, choose names that match
@@ -65,12 +66,14 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
 
     EditText editTextBagisOlusturBaslik;
     EditText editTextBagisOlusturBilgi;
-    EditText editTextBagisOlusturKurum;
+    EditText editTextBagisOlusturSmsAdres;
+    EditText editTextBagisOlusturSmsMetin;
     EditText editTextBagisOlusturOzet;
     ImageView imageviewBagisOlusturFotograf;
     Button buttonBagisOlusturOlustur;
     Button buttonBagisOlusturFotograf;
-    String bagisKey = "";
+    String bagisKey = yazBagislar.push().getKey();
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -116,7 +119,8 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
 
         editTextBagisOlusturBaslik = RootView.findViewById(R.id.editTextBagisOlusturBaslik);
         editTextBagisOlusturBilgi = RootView.findViewById(R.id.editTextBagisOlusturBilgi);
-        editTextBagisOlusturKurum = RootView.findViewById(R.id.editTextBagisOlusturKurum);
+        editTextBagisOlusturSmsAdres = RootView.findViewById(R.id.editTextBagisOlusturSmsAdres);
+        editTextBagisOlusturSmsMetin = RootView.findViewById(R.id.editTextBagisOlusturSmsMetin);
         editTextBagisOlusturOzet = RootView.findViewById(R.id.editTextBagisOlusturOzet);
         imageviewBagisOlusturFotograf = RootView.findViewById(R.id.imageviewBagisOlusturFotograf);
 
@@ -137,18 +141,6 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId() == buttonBagisOlusturOlustur.getId()) {
-            String baslik = "" + editTextBagisOlusturBaslik.getText();
-            String bilgi = "" + editTextBagisOlusturBilgi.getText();
-            String kurum = "" + editTextBagisOlusturKurum.getText();
-            String ozet = "" + editTextBagisOlusturOzet.getText();
-            Bagis bagisOlustur = new Bagis(baslik, bilgi, kurum, ozet);
-
-            if(Anasayfa.kullaniciTipi.equals("Kurumsal")){
-                dbBagisEkleKurumsal(bagisOlustur);
-            }else{
-                dbBagisEkleBireysel(bagisOlustur);
-            }
-
             uploadFile();
         }
         if(v.getId() == buttonBagisOlusturFotograf.getId()){
@@ -159,14 +151,21 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
         }
     }
 
-    public void dbBagisEkleBireysel(Bagis gelenBagis){
+    public void dbBagisEkleBireysel(boolean resimCheck){
         try{
-            DatabaseReference yazBagislar =db.getReference().child("Bagislar");
-            final DatabaseReference kullanici = db.getReference().child("Kullanicilar").child("Bireysel").child(user.getUid()).child("BagislarimFragment");
-            bagisKey = yazBagislar.push().getKey();
-            gelenBagis.setKullaniciKey(user.getUid());
-            gelenBagis.setResimKey(bagisKey);
-            yazBagislar.child(bagisKey).setValue(gelenBagis);
+            final DatabaseReference kullanici = db.getReference().child("Kullanicilar").child("Bireysel").child(user.getUid()).child("Bagislarim");
+            String baslik = "" + editTextBagisOlusturBaslik.getText();
+            String bilgi = "" + editTextBagisOlusturBilgi.getText();
+            String ozet = "" + editTextBagisOlusturOzet.getText();
+            String smsAdres = "" + editTextBagisOlusturSmsAdres.getText();
+            String smsMetin = "" + editTextBagisOlusturSmsMetin.getText();
+            String resimKey = " ";
+            if(resimCheck){
+                resimKey = (bagisKey.toString()+".jpg");
+            }
+            System.out.println("resim key = " + resimKey);
+            Bagis bagisOlustur = new Bagis(baslik, bilgi, ozet, " ", user.getUid(), resimKey,bagisKey,smsAdres,smsMetin);
+            yazBagislar.child(bagisKey).setValue(bagisOlustur);
             kullanici.child(bagisKey).setValue("0");
             Toast.makeText(getContext(),"Bağış başarıyla eklendi",Toast.LENGTH_SHORT).show();
             final BagislarimFragment bagislarimFragment = new BagislarimFragment();
@@ -179,14 +178,21 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
 
 
     }
-    public void dbBagisEkleKurumsal(Bagis gelenBagis){
+    public void dbBagisEkleKurumsal(boolean resimCheck){
         try {
-            DatabaseReference yazBagislar =db.getReference().child("Bagislar");
-            final DatabaseReference kullanici = db.getReference().child("Kullanicilar").child("Kurumsal").child(user.getUid()).child("BagislarimFragment");
-            bagisKey = yazBagislar.push().getKey();
-            gelenBagis.setKullaniciKey(user.getUid());
-            gelenBagis.setResimKey(bagisKey);
-            yazBagislar.child(bagisKey).setValue(gelenBagis);
+            final DatabaseReference kullanici = db.getReference().child("Kullanicilar").child("Kurumsal").child(user.getUid()).child("Bagislarim");
+            String baslik = "" + editTextBagisOlusturBaslik.getText();
+            String bilgi = "" + editTextBagisOlusturBilgi.getText();
+            String ozet = "" + editTextBagisOlusturOzet.getText();
+            String kurum = Anasayfa.currentKurum.getKurumAdi();
+            String smsAdres = "" + editTextBagisOlusturSmsAdres.getText();
+            String smsMetin = "" + editTextBagisOlusturSmsMetin.getText();
+            String resimKey = " ";
+            if(resimCheck){
+                resimKey = (bagisKey+".jpg");
+            }
+            Bagis bagisOlustur = new Bagis(baslik, bilgi, ozet, kurum, user.getUid(), resimKey, bagisKey, smsAdres, smsMetin);
+            yazBagislar.child(bagisKey).setValue(bagisOlustur);
             kullanici.child(bagisKey).setValue("0");
             Toast.makeText(getContext(),"Bağış başarıyla eklendi",Toast.LENGTH_SHORT).show();
             final BagislarimFragment bagislarimFragment = new BagislarimFragment();
@@ -274,6 +280,11 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
                             Toast.makeText(getContext(),"File Uploaded", Toast.LENGTH_LONG).show();
+                            if(Anasayfa.kullaniciTipi.equals("Kurumsal")){
+                                dbBagisEkleKurumsal(true);
+                            }else{
+                                dbBagisEkleBireysel(true);
+                            }
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -293,6 +304,11 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
                     });
 
         }else{
+            if(Anasayfa.kullaniciTipi.equals("Kurumsal")){
+                dbBagisEkleKurumsal(false);
+            }else{
+                dbBagisEkleBireysel(false);
+            }
             //filepath bos hata kısmı
         }
     }

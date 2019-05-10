@@ -25,7 +25,7 @@ public class Anasayfa extends AppCompatActivity
 
     private TextView mTextMessage;
     public static Birey currentBirey = new Birey();
-    public static Kurum cuurentKurum = new Kurum();
+    public static Kurum currentKurum = new Kurum();
     public static String kullaniciTipi;
 
 

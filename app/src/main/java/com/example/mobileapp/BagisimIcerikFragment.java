@@ -111,10 +111,10 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
         buttonBagisimIcerikBagiscilariGoster.setOnClickListener(this);
 
         imageViewBagisimIcerikResim = (ImageView) RootView.findViewById(R.id.imageViewBagisimIcerikResim);
+
         if(bagis.resimKey != null){
-            Bitmap bmp2;
             StorageReference storageReferance  = FirebaseStorage.getInstance().getReference();
-            final StorageReference islandRef = storageReferance.child("images").child(bagis.resimKey+".jpg");
+            final StorageReference islandRef = storageReferance.child("images").child(bagis.getResimKey());
             final long ONE_MEGABYTE = 1024 * 1024;
             islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                 @Override

@@ -108,7 +108,7 @@ public class KurumDetayFragment extends Fragment {
         imageviewKurumDetay = (ImageView) RootView.findViewById(R.id.imageviewKurumDetay);//Fotoyu tut
         if(this.kurum.getResimKey() != null){
             StorageReference storageReferance  = FirebaseStorage.getInstance().getReference();
-            final StorageReference islandRef = storageReferance.child("images").child(this.kurum.getResimKey()+".jpg");
+            final StorageReference islandRef = storageReferance.child("kullanicilar").child(this.kurum.getResimKey());
             final long ONE_MEGABYTE = 1024 * 1024;
             islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                 @Override
