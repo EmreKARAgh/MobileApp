@@ -201,15 +201,12 @@ public class Giris extends AppCompatActivity implements View.OnClickListener {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             final FirebaseUser user = mAuth.getCurrentUser();
-                            System.out.println("giris yapan user:" + user.getEmail());
                             FirebaseDatabase db = FirebaseDatabase.getInstance();
                             final DatabaseReference ref = db.getReference();
                             ref.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     boolean check = dataSnapshot.child("Kullanicilar").child("Bireysel").child(user.getUid()).exists();
-                                    System.out.println("check kardaşım:" +check);
-                                    System.out.println("uid kardaşım :" + user.getUid());
                                     if(check){
                                         verileriCekBireysel(user.getUid());
                                     }

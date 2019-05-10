@@ -10,7 +10,6 @@ public class Bagis {
     String bagisid;
 
 
-
     public Bagis(String baslik, String bilgi, String kurum, String ozet, String bagisid){
         this.baslik = baslik;
         this.kurum = kurum;
@@ -32,6 +31,7 @@ public class Bagis {
         this.bilgi = bilgi;
         this.ozet = ozet;
     }
+
 
     public String getBagisid() {
         return bagisid;

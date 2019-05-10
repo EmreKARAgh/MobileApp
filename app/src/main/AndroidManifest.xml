@@ -15,15 +15,28 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            android:screenOrientation="portrait"
         </activity>
-        <activity android:name=".KurumsalKaydol" />
-        <activity android:name=".KayitOl" />
-        <activity android:name=".BireyselKaydol" />
-        <activity android:name=".SifremiUnuttum" />
-        <activity android:name=".Giris" />
+        <activity android:name=".KurumsalKaydol"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".KayitOl"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".BireyselKaydol"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".SifremiUnuttum"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Giris"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".Anasayfa"
-            android:label="Anasayfa"></activity>
+            android:label="Anasayfa"
+            android:screenOrientation="portrait"
+            ></activity>
     </application>
 
 </manifest>

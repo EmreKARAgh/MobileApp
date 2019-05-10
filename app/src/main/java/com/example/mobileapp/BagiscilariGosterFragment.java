@@ -1,6 +1,7 @@
 package com.example.mobileapp;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -242,18 +243,16 @@ public class BagiscilariGosterFragment extends Fragment {
                 String[] strings = (String[]) myMap.keySet().toArray(new String[myMap.size()]);
 
 
-
                 for(int i=0;i<strings.length;i++){
                     DatabaseReference okuBagislar = db.getReference().child("Kullanicilar").child("Kurumsal").child(strings[i]);
                     okuBagislar.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             try{
-                                kurumAdi=dataSnapshot.child("ad").getValue().toString();
+                                kurumAdi=dataSnapshot.child("kurumAdi").getValue().toString();
                                 kurumTelefon=dataSnapshot.child("telefon").getValue().toString();
                                 kurumEmail=dataSnapshot.child("email").getValue().toString();
                                 initKurum();
-
                             }catch(Exception e){
                                 e.printStackTrace();
 

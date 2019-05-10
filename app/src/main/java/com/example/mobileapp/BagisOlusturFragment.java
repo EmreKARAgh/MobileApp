@@ -188,6 +188,9 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
             gelenBagis.setResimKey(bagisKey);
             yazBagislar.child(bagisKey).setValue(gelenBagis);
             kullanici.child(bagisKey).setValue("0");
+            Toast.makeText(getContext(),"Bağış başarıyla eklendi",Toast.LENGTH_SHORT).show();
+            final BagislarimFragment bagislarimFragment = new BagislarimFragment();
+            setFragment(bagislarimFragment);
         }catch (Exception e){
             e.printStackTrace();
             Toast.makeText(getContext(),"Bağış eklenemedi lütfen yeniden deneyin.",Toast.LENGTH_SHORT).show();

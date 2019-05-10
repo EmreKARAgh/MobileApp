@@ -27,7 +27,6 @@ public class ObjeGorsel extends android.support.v7.widget.AppCompatImageView  {
             final StorageReference islandRef = storageReferance.child("images").child(resimKey+".jpg");
             final long ONE_MEGABYTE = 1024 * 1024;
             this.setAdjustViewBounds(true);
-            System.out.println("neredeyim lan ben");
             islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                 @Override
                 public void onSuccess(byte[] bytes) {
@@ -56,7 +55,6 @@ public class ObjeGorsel extends android.support.v7.widget.AppCompatImageView  {
             final StorageReference islandRef = storageReferance.child("kullanicilar").child(resimKey);
             final long ONE_MEGABYTE = 1024 * 1024;
             this.setAdjustViewBounds(true);
-            System.out.println("neredeyim lan ben");
             islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                 @Override
                 public void onSuccess(byte[] bytes) {

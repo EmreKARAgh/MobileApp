@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -134,7 +135,7 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         if(v.getId() == buttonBagislarIcerikBagisYap.getId()){
             kontrol();
-            System.out.println("Bagis Yaptim");
+
 
         }
     }
@@ -151,6 +152,9 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
                     }else{
                         dbBagisEkle(0);
                     }
+                    Toast.makeText(getContext(),"Bağışınız Alınmıştır, Teşekkür Ederiz.",Toast.LENGTH_SHORT).show();
+                    BagisIcerikFragment.this.editTextBagisIcerikKGoster.setText("");
+
                 }catch (Exception e){
                     e.printStackTrace();
                 }

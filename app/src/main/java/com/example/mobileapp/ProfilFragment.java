@@ -115,7 +115,6 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
             imageView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher_foreground));;
         }
         else {
-            System.out.println("ResimKey = " + resimKey);
             StorageReference storageReferance  = FirebaseStorage.getInstance().getReference();
             final StorageReference islandRef = storageReferance.child("kullanicilar").child(resimKey);
             final long ONE_MEGABYTE = 1024 * 1024;

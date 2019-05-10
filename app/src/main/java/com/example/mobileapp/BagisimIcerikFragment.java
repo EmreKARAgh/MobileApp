@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,9 +51,8 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
     private String mParam1;
     private String mParam2;
     Bagis bagis;
-
+    int bagisTutari;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     private BagisimIcerikFragment.OnFragmentInteractionListener mListener;
 
@@ -88,7 +89,7 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    TextView textViewBagisimIcerikBaslik,textViewBagisimIcerikBilgi,textViewBagisimIcerikKurum;
+    TextView textViewBagisimIcerikBaslik,textViewBagisimIcerikBilgi,textViewBagisimIcerikKurum,textViewBagisimIcerikBagisTutari;
     ImageView imageViewBagisimIcerikResim;
 
     Button buttonBagisimIcerikBagiscilariGoster;
@@ -97,12 +98,14 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View RootView = inflater.inflate(R.layout.fragment_bagisim_icerik, container, false);
+        bagisTutariHesapla();
         textViewBagisimIcerikBaslik=(TextView)RootView.findViewById(R.id.textViewBagisimIcerikBaslik);
         textViewBagisimIcerikBilgi=(TextView)RootView.findViewById(R.id.textViewBagisimIcerikBilgi);
         textViewBagisimIcerikKurum=(TextView)RootView.findViewById(R.id.textViewBagisimIcerikKurum);
         textViewBagisimIcerikBaslik.setText(bagis.baslik);
         textViewBagisimIcerikBilgi.setText(bagis.bilgi);
         textViewBagisimIcerikKurum.setText(bagis.kurum);
+        textViewBagisimIcerikBagisTutari = (TextView) RootView.findViewById(R.id.textViewBagisimIcerikBagisTutari);
 
         buttonBagisimIcerikBagiscilariGoster = (Button) RootView.findViewById(R.id.buttonBagisimIcerikBagiscilariGoster);
         buttonBagisimIcerikBagiscilariGoster.setOnClickListener(this);
@@ -134,7 +137,6 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         if(v.getId() == buttonBagisimIcerikBagiscilariGoster.getId()){
 
-            System.out.println(" bagiscilari gosteriyorum ");
 
             final BagiscilariGosterFragment bagiscilariGosterFragment = new BagiscilariGosterFragment();
             bagiscilariGosterFragment.bagis = bagis;
@@ -143,6 +145,36 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
 
 
         }
+    }
+    private void bagisTutariHesapla(){
+        DatabaseReference ref = db.getReference().child("Bagislar").child(this.bagis.getBagisid()).child("bagiscilar");
+        ref.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                BagisimIcerikFragment.this.bagisTutari += Integer.parseInt(dataSnapshot.getValue().toString());
+                BagisimIcerikFragment.this.textViewBagisimIcerikBagisTutari.setText("" + (BagisimIcerikFragment.this.bagisTutari));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void setFragment(Fragment fragment){
@@ -163,7 +195,6 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
     public void onAttach(Context context) {
 
         super.onAttach(context);
-        System.out.println("gelen context = " + context.toString());
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
