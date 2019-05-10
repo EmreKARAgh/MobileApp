@@ -99,7 +99,7 @@ public class BagiscilariGosterFragment extends Fragment {
 
         TableRow tbrow0 = new TableRow(getContext());
         TextView tv1 = new TextView(this.getContext());
-        tv1.setText("Ad Soyad  ");
+        tv1.setText(" Ad Soyad  ");
         tv1.setTextColor(Color.BLACK);
         tv1.setGravity(Gravity.LEFT);
         tv1.setTextSize(20);
@@ -107,13 +107,13 @@ public class BagiscilariGosterFragment extends Fragment {
         TextView tv2 = new TextView(this.getContext());
         tv2.setText(" Telefon ");
         tv2.setTextColor(Color.BLACK);
-        tv2.setGravity(Gravity.CENTER);
+        tv2.setGravity(Gravity.LEFT);
         tv2.setTextSize(20);
         tbrow0.addView(tv2);
         TextView tv3 = new TextView(this.getContext());
         tv3.setText("E-mail        ");
         tv3.setTextColor(Color.BLACK);
-        tv3.setGravity(Gravity.RIGHT);
+        tv3.setGravity(Gravity.LEFT);
         tv3.setTextSize(20);
         tbrow0.addView(tv3);
         tableLayoutBagiscilariGoster.addView(tbrow0);
@@ -124,21 +124,21 @@ public class BagiscilariGosterFragment extends Fragment {
 
         TableRow tbrow = new TableRow(getContext());
         TextView t1v = new TextView(getContext());
-        t1v.setText(Ad+" "+Soyad);
+        t1v.setText(" "+Ad+" "+Soyad);
         t1v.setTextColor(Color.BLACK);
         t1v.setGravity(Gravity.LEFT);
         t1v.setTextSize(15);
         tbrow.addView(t1v);
         TextView t2v = new TextView(getContext());
-        t2v.setText(Telefon);
+        t2v.setText(" "+Telefon);
         t2v.setTextColor(Color.BLACK);
-        t2v.setGravity(Gravity.CENTER);
+        t2v.setGravity(Gravity.LEFT);
         t2v.setTextSize(15);
         tbrow.addView(t2v);
         TextView t3v = new TextView(getContext());
-        t3v.setText("  "+Email);
+        t3v.setText(" "+Email);
         t3v.setTextColor(Color.BLACK);
-        t3v.setGravity(Gravity.RIGHT);
+        t3v.setGravity(Gravity.LEFT);
         t3v.setTextSize(15);
         tbrow.addView(t3v);
         tableLayoutBagiscilariGoster.addView(tbrow);
@@ -150,21 +150,21 @@ public class BagiscilariGosterFragment extends Fragment {
 
         TableRow tbrow = new TableRow(getContext());
         TextView t1v = new TextView(getContext());
-        t1v.setText(kurumAdi);
+        t1v.setText(" "+kurumAdi);
         t1v.setTextColor(Color.RED);
         t1v.setGravity(Gravity.LEFT);
         t1v.setTextSize(15);
         tbrow.addView(t1v);
         TextView t2v = new TextView(getContext());
-        t2v.setText(kurumTelefon);
+        t2v.setText(" "+kurumTelefon);
         t2v.setTextColor(Color.RED);
-        t2v.setGravity(Gravity.CENTER);
+        t2v.setGravity(Gravity.LEFT);
         t2v.setTextSize(15);
         tbrow.addView(t2v);
         TextView t3v = new TextView(getContext());
-        t3v.setText("  "+kurumEmail);
+        t3v.setText(" "+kurumEmail);
         t3v.setTextColor(Color.RED);
-        t3v.setGravity(Gravity.RIGHT);
+        t3v.setGravity(Gravity.LEFT);
         t3v.setTextSize(15);
         tbrow.addView(t3v);
         tableLayoutBagiscilariGoster.addView(tbrow);
