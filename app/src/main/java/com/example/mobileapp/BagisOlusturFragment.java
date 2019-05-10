@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -264,6 +265,14 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
         }
     }
 
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(conMan.getActiveNetworkInfo() != null && conMan.getActiveNetworkInfo().isConnected())
+            return true;
+        else
+            return false;
+    }
+
     private void uploadFile(){
 
         if(filePath != null){
@@ -281,9 +290,15 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
                             progressDialog.dismiss();
                             Toast.makeText(getContext(),"File Uploaded", Toast.LENGTH_LONG).show();
                             if(Anasayfa.kullaniciTipi.equals("Kurumsal")){
-                                dbBagisEkleKurumsal(true);
+                                if(!isNetworkAvailable(getContext())) {
+                                    Toast.makeText(getContext(),"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
+                                }else{
+                                dbBagisEkleKurumsal(true);}
                             }else{
-                                dbBagisEkleBireysel(true);
+                                if(!isNetworkAvailable(getContext())) {
+                                    Toast.makeText(getContext(),"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
+                                }else{
+                                dbBagisEkleBireysel(true);}
                             }
                         }
                     })

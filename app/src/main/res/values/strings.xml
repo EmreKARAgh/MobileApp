@@ -77,6 +77,7 @@
     <string name="textViewProfiliDuzenleEmail">EMAİL:</string>
     <string name="textViewProfiliDuzenleSifre">ŞİFRE:</string>
     <string name="buttonProfilCikisYap">ÇIKIŞ YAP</string>
+    <string name="buttonProfiliDuzenleFotograf">FOTOĞRAF SEÇ</string>
 
 
 </resources>

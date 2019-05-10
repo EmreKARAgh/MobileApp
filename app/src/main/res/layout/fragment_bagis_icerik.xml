@@ -25,10 +25,38 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textViewBagisIcerikBaslik"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewBagisIcerikBaslik"
+                        android:layout_width="316dp"
+                        android:layout_height="100dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewBagisIcerikSms"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="   SMS" />
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:id="@+id/floatingActionButtonSms"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:src="@android:drawable/ic_menu_send" />
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/imageViewBagisIcerikResim"

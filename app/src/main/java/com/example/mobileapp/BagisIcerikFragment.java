@@ -1,11 +1,14 @@
 package com.example.mobileapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -92,6 +95,8 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
     Button buttonBagislarIcerikBagisYap;
     ImageView imageViewBagisIcerikResim;
 
+    FloatingActionButton fab;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -108,6 +113,14 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
         imageViewBagisIcerikResim = (ImageView) RootView.findViewById(R.id.imageViewBagisIcerikResim);
 
         editTextBagisIcerikKGoster = (EditText) RootView.findViewById(R.id.editTextBagisIcerikMiktar);
+
+        fab = (FloatingActionButton) RootView.findViewById(R.id.floatingActionButtonSms);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sms();
+            }
+        });
 
         if(bagis.resimKey != null){
             Bitmap bmp2;
@@ -131,11 +144,36 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
         return RootView;
     }
 
+    public void sms(){
+        System.out.println("sms: " + bagis.getSmsAdres());
+        if(bagis.getSmsAdres()!= null){
+            Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+            smsIntent.setData(Uri.parse("sms:"));
+            smsIntent.putExtra("address", bagis.getSmsAdres());
+            smsIntent.putExtra("sms_body",bagis.getSmsMetin());
+            startActivity(smsIntent);
+        }
+    }
+
+
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(conMan.getActiveNetworkInfo() != null && conMan.getActiveNetworkInfo().isConnected())
+            return true;
+        else
+            return false;
+    }
+
+
+
     @Override
     public void onClick(View v) {
         if(v.getId() == buttonBagislarIcerikBagisYap.getId()){
-            kontrol();
-
+            if(!isNetworkAvailable(getContext())) {
+                Toast.makeText(getContext(),"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
+            }else {
+                kontrol();
+            }
 
         }
     }

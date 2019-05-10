@@ -43,8 +43,9 @@ public class BagiscilariGosterFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     Bagis bagis;
-    String Ad,Soyad,Telefon,Email;
+    String Ad,Soyad,Telefon,Email,Tutar;
     String kurumAdi, kurumEmail, kurumTelefon;
+
     TableLayout tableLayoutBagiscilariGoster;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
@@ -98,20 +99,26 @@ public class BagiscilariGosterFragment extends Fragment {
     public void initBaslangic(){
 
         TableRow tbrow0 = new TableRow(getContext());
+        TextView tv0 = new TextView(this.getContext());
+        tv0.setText("      Ad Soyad");
+        tv0.setTextColor(Color.BLACK);
+        tv0.setGravity(Gravity.LEFT);
+        tv0.setTextSize(20);
+        tbrow0.addView(tv0);
         TextView tv1 = new TextView(this.getContext());
-        tv1.setText(" Ad Soyad  ");
+        tv1.setText("      Tutar");
         tv1.setTextColor(Color.BLACK);
         tv1.setGravity(Gravity.LEFT);
         tv1.setTextSize(20);
         tbrow0.addView(tv1);
         TextView tv2 = new TextView(this.getContext());
-        tv2.setText(" Telefon ");
+        tv2.setText("      Telefon");
         tv2.setTextColor(Color.BLACK);
         tv2.setGravity(Gravity.LEFT);
         tv2.setTextSize(20);
         tbrow0.addView(tv2);
         TextView tv3 = new TextView(this.getContext());
-        tv3.setText("E-mail        ");
+        tv3.setText("      E-mail      ");
         tv3.setTextColor(Color.BLACK);
         tv3.setGravity(Gravity.LEFT);
         tv3.setTextSize(20);
@@ -123,20 +130,26 @@ public class BagiscilariGosterFragment extends Fragment {
 
 
         TableRow tbrow = new TableRow(getContext());
+        TextView t0v = new TextView(getContext());
+        t0v.setText("      "+Ad+" "+Soyad);
+        t0v.setTextColor(Color.BLACK);
+        t0v.setGravity(Gravity.LEFT);
+        t0v.setTextSize(15);
+        tbrow.addView(t0v);
         TextView t1v = new TextView(getContext());
-        t1v.setText(" "+Ad+" "+Soyad);
+        t1v.setText("      "+Tutar);
         t1v.setTextColor(Color.BLACK);
         t1v.setGravity(Gravity.LEFT);
         t1v.setTextSize(15);
         tbrow.addView(t1v);
         TextView t2v = new TextView(getContext());
-        t2v.setText(" "+Telefon);
+        t2v.setText("      "+Telefon);
         t2v.setTextColor(Color.BLACK);
         t2v.setGravity(Gravity.LEFT);
         t2v.setTextSize(15);
         tbrow.addView(t2v);
         TextView t3v = new TextView(getContext());
-        t3v.setText(" "+Email);
+        t3v.setText("      "+Email+"      ");
         t3v.setTextColor(Color.BLACK);
         t3v.setGravity(Gravity.LEFT);
         t3v.setTextSize(15);
@@ -149,20 +162,26 @@ public class BagiscilariGosterFragment extends Fragment {
 
 
         TableRow tbrow = new TableRow(getContext());
+        TextView t0v = new TextView(getContext());
+        t0v.setText("      "+kurumAdi);
+        t0v.setTextColor(Color.RED);
+        t0v.setGravity(Gravity.LEFT);
+        t0v.setTextSize(15);
+        tbrow.addView(t0v);
         TextView t1v = new TextView(getContext());
-        t1v.setText(" "+kurumAdi);
+        t1v.setText("      "+Tutar);
         t1v.setTextColor(Color.RED);
         t1v.setGravity(Gravity.LEFT);
         t1v.setTextSize(15);
         tbrow.addView(t1v);
         TextView t2v = new TextView(getContext());
-        t2v.setText(" "+kurumTelefon);
+        t2v.setText("      "+kurumTelefon);
         t2v.setTextColor(Color.RED);
         t2v.setGravity(Gravity.LEFT);
         t2v.setTextSize(15);
         tbrow.addView(t2v);
         TextView t3v = new TextView(getContext());
-        t3v.setText(" "+kurumEmail);
+        t3v.setText("      "+kurumEmail+"      ");
         t3v.setTextColor(Color.RED);
         t3v.setGravity(Gravity.LEFT);
         t3v.setTextSize(15);
@@ -207,7 +226,10 @@ public class BagiscilariGosterFragment extends Fragment {
                                 Soyad=dataSnapshot.child("soyad").getValue().toString();
                                 Telefon=dataSnapshot.child("telefon").getValue().toString();
                                 Email=dataSnapshot.child("email").getValue().toString();
+                                Tutar=dataSnapshot.child("YaptigimBagislar").child(bagis.getBagisid()).getValue().toString();
+                                // System.out.println("Bakiye= "+Bakiye);
                                 init();
+
 
                             }catch(Exception e){
                                 e.printStackTrace();
@@ -252,6 +274,7 @@ public class BagiscilariGosterFragment extends Fragment {
                                 kurumAdi=dataSnapshot.child("kurumAdi").getValue().toString();
                                 kurumTelefon=dataSnapshot.child("telefon").getValue().toString();
                                 kurumEmail=dataSnapshot.child("email").getValue().toString();
+                                Tutar=dataSnapshot.child("YaptigimBagislar").child(bagis.getBagisid()).getValue().toString();
                                 initKurum();
                             }catch(Exception e){
                                 e.printStackTrace();

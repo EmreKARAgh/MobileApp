@@ -1,5 +1,7 @@
 package com.example.mobileapp;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -33,8 +35,14 @@ public class UygulamaGiris extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uygulama_giris);
 
+        if(!isNetworkAvailable(this)) {
+            Toast.makeText(this,"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
+        }
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         ref = db.getReference();
+
+
 
         if(user != null) {
 
@@ -88,6 +96,15 @@ public class UygulamaGiris extends AppCompatActivity implements View.OnClickList
         });
 
     }
+
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(conMan.getActiveNetworkInfo() != null && conMan.getActiveNetworkInfo().isConnected())
+            return true;
+        else
+            return false;
+    }
+
 
     private void verileriCekBireysel(final String Uid){
         FirebaseDatabase db = FirebaseDatabase.getInstance();
