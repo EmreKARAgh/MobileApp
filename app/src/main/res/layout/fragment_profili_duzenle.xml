@@ -7,72 +7,134 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editTextProfiliDuzenleAd"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="AD" />
+            android:orientation="vertical" >
 
-        <EditText
-            android:id="@+id/editTextProfiliDuzenleSoyad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="SOYAD" />
+            <TextView
+                android:id="@+id/textViewProfiliDuzenleAd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textViewProfiliDuzenleAd" />
 
-        <EditText
-            android:id="@+id/editTextProfiliDuzenleEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="EMAIL" />
+            <EditText
+                android:id="@+id/editTextProfiliDuzenleAd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="AD" />
 
-        <EditText
-            android:id="@+id/editTextProfiliDuzenleTelefon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="TELEFON" />
+            <TextView
+                android:id="@+id/textViewProfiliDuzenleSoyad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textViewProfiliDuzenleSoyad" />
 
-        <EditText
-            android:id="@+id/editTextProfiliDuzenleKullaniciadi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="KULLANICI ADI" />
+            <EditText
+                android:id="@+id/editTextProfiliDuzenleSoyad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="SOYAD" />
 
-        <EditText
-            android:id="@+id/editTextProfiliDuzenleSifre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="ŞİFRE" />
+            <TextView
+                android:id="@+id/textViewProfiliDuzenleAdres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textViewProfiliDuzenleAdres" />
 
-        <EditText
-            android:id="@+id/editTextProfiliDuzenleGuvenlikCevap"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="GÜVENLİK CEVAP" />
+            <EditText
+                android:id="@+id/editTextProfiliDuzenleAdres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="ADRES" />
 
-        <Button
-            android:id="@+id/buttonProfiliDuzenleGuncelle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="GÜNCELLE" />
+            <TextView
+                android:id="@+id/textViewProfiliDuzenleTelefon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textViewProfiliDuzenleTelefon" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/editTextProfiliDuzenleTelefon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="TELEFON" />
+
+            <TextView
+                android:id="@+id/textViewProfiliDuzenleKullaniciAdi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textViewProfiliDuzenleKullanıcıAdı" />
+
+            <EditText
+                android:id="@+id/editTextProfiliDuzenleKullaniciadi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="KULLANICI ADI" />
+
+            <TextView
+                android:id="@+id/textViewProfiliDuzenleSosyalmedya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textViewProfiliDuzenleSosyalmedya" />
+
+            <EditText
+                android:id="@+id/editTextProfiliDuzenleSosyalmedya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="SOSYALMEDYA" />
+
+            <TextView
+                android:id="@+id/textViewProfiliDuzenleEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textViewProfiliDuzenleEmail" />
+
+            <EditText
+                android:id="@+id/editTextProfiliDuzenleEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:text="EMAIL" />
+
+            <TextView
+                android:id="@+id/textViewProfiliDuzenleSifre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textViewProfiliDuzenleSifre" />
+
+            <EditText
+                android:id="@+id/editTextProfiliDuzenleSifre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/buttonProfiliDuzenleGuncelle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GÜNCELLE" />
+        </LinearLayout>
+    </ScrollView>
+
+
 </FrameLayout>

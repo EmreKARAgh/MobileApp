@@ -1,14 +1,29 @@
 package com.example.mobileapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 /**
@@ -64,22 +79,143 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
 
     EditText editTextProfiliDuzenleAd,editTextProfiliDuzenleSoyad,editTextProfiliDuzenleEmail,
             editTextProfiliDuzenleTelefon,editTextProfiliDuzenleSifre,editTextProfiliDuzenleKullaniciadi,
-            editTextProfiliDuzenleGuvenlikCevap;
+            editTextProfiliDuzenleAdres,editTextProfiliDuzenleSosyalmedya;
+
+    String editTextProfiliDuzenleAdtut,editTextProfiliDuzenleSoyadtut,editTextProfiliDuzenleEmailtut,
+            editTextProfiliDuzenleTelefontut,editTextProfiliDuzenleSifretut,editTextProfiliDuzenleKullaniciaditut,
+            editTextProfiliDuzenleAdrestut,editTextProfiliDuzenleSosyalmedyatut;
+
     Button buttonProfiliDuzenleGuncelle;
+
+    String ad,soyad,adres,telefon,kullaniciAdi,sosyalMedya,email,resimKey;
+    String kurumAdi,kurumNo;
+
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
+
+    private static final String TAG = "EmailPassword";
+
+    private FirebaseAuth mAuth;
+    FirebaseUser user;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View RootView = inflater.inflate(R.layout.fragment_profili_duzenle, container, false);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
         editTextProfiliDuzenleAd=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleAd);
         editTextProfiliDuzenleEmail=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleEmail);
         editTextProfiliDuzenleSoyad=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleSoyad);
         editTextProfiliDuzenleTelefon=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleTelefon);
-        editTextProfiliDuzenleSifre=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleSifre);
         editTextProfiliDuzenleKullaniciadi=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKullaniciadi);
-        editTextProfiliDuzenleGuvenlikCevap=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleGuvenlikCevap);
+        editTextProfiliDuzenleAdres=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleAdres);
+        editTextProfiliDuzenleSosyalmedya=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleSosyalmedya);
+        editTextProfiliDuzenleSifre=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleSifre);
         buttonProfiliDuzenleGuncelle=(Button)RootView.findViewById(R.id.buttonProfiliDuzenleGuncelle);
         buttonProfiliDuzenleGuncelle.setOnClickListener(this);
+
+        verileriCekBireysel(user.getUid());
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
+
         return RootView;
+    }
+    Birey birey;
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId()==buttonProfiliDuzenleGuncelle.getId()){
+            editTextProfiliDuzenleAdtut = editTextProfiliDuzenleAd.getText().toString();
+            editTextProfiliDuzenleSoyadtut = editTextProfiliDuzenleSoyad.getText().toString();
+            editTextProfiliDuzenleAdrestut = editTextProfiliDuzenleAdres.getText().toString();
+            editTextProfiliDuzenleTelefontut = editTextProfiliDuzenleTelefon.getText().toString();
+            editTextProfiliDuzenleKullaniciaditut = editTextProfiliDuzenleKullaniciadi.getText().toString();
+            editTextProfiliDuzenleSosyalmedyatut = editTextProfiliDuzenleSosyalmedya.getText().toString();
+            editTextProfiliDuzenleEmailtut = editTextProfiliDuzenleEmail.getText().toString();
+            editTextProfiliDuzenleSifretut = editTextProfiliDuzenleSifre.getText().toString();
+
+
+            birey = new Birey(editTextProfiliDuzenleAdtut, editTextProfiliDuzenleSoyadtut, editTextProfiliDuzenleAdrestut, editTextProfiliDuzenleTelefontut,  editTextProfiliDuzenleKullaniciaditut, editTextProfiliDuzenleSosyalmedyatut, editTextProfiliDuzenleEmailtut, (resimKey+".jpg"), user.getUid());
+
+            DatabaseReference kullaniciEkle =db.getReference().child("Kullanicilar").child("Bireysel");
+            kullaniciEkle.child(user.getUid()).setValue(birey);
+
+            user.updateEmail(editTextProfiliDuzenleEmailtut)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "User email address updated.");
+                            }
+                        }
+                    });
+
+
+            String newPassword = editTextProfiliDuzenleSifretut;
+
+            user.updatePassword(newPassword)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "User password updated.");
+                            }
+                        }
+                    });
+
+            Toast.makeText(getContext(),"Verileriniz Güncellenmiştir.",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void verileriCekBireysel(String Uid){
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+
+        DatabaseReference okuBagislar =db.getReference().child("Kullanicilar").child("Bireysel").child(Uid);
+        okuBagislar.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                ad = dataSnapshot.child("ad").getValue().toString();
+                editTextProfiliDuzenleAd.setText(ad);
+
+                soyad = dataSnapshot.child("soyad").getValue().toString();
+                editTextProfiliDuzenleSoyad.setText(soyad);
+
+                adres = dataSnapshot.child("adres").getValue().toString();
+                editTextProfiliDuzenleAdres.setText(adres);
+
+                telefon = dataSnapshot.child("telefon").getValue().toString();
+                editTextProfiliDuzenleTelefon.setText(telefon);
+
+                kullaniciAdi = dataSnapshot.child("kullaniciAdi").getValue().toString();
+                editTextProfiliDuzenleKullaniciadi.setText(kullaniciAdi);
+
+                sosyalMedya = dataSnapshot.child("sosyalMedya").getValue().toString();
+                editTextProfiliDuzenleSosyalmedya.setText(sosyalMedya);
+
+                email = dataSnapshot.child("email").getValue().toString();
+                editTextProfiliDuzenleEmail.setText(email);
+
+
+
+                resimKey = " ";
+                try {
+                    resimKey = dataSnapshot.child("resimKey").getValue().toString();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -106,12 +242,7 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
         mListener = null;
     }
 
-    @Override
-    public void onClick(View view) {
-        if(view.getId()==buttonProfiliDuzenleGuncelle.getId()){
-            //Guncellemeislemleri
-        }
-    }
+
 
     /**
      * This interface must be implemented by activities that contain this

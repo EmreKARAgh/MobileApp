@@ -68,6 +68,15 @@
     <string name="buttonProfilBagislarim">BAĞIŞLARIM</string>
     <string name="textviewSifremiUnuttumEmail">Email :</string>
     <string name="textViewSifremiUnuttum">Şifremi Unuttum</string>
+    <string name="textViewProfiliDuzenleAd">AD:</string>
+    <string name="textViewProfiliDuzenleSoyad">SOYAD:</string>
+    <string name="textViewProfiliDuzenleAdres">ADRES:</string>
+    <string name="textViewProfiliDuzenleTelefon">TELEFON:</string>
+    <string name="textViewProfiliDuzenleKullanıcıAdı">KULLANICI ADI:</string>
+    <string name="textViewProfiliDuzenleSosyalmedya">SOSYAL MEDYA:</string>
+    <string name="textViewProfiliDuzenleEmail">EMAİL:</string>
+    <string name="textViewProfiliDuzenleSifre">ŞİFRE:</string>
+    <string name="buttonProfilCikisYap">ÇIKIŞ YAP</string>
 
 
 </resources>

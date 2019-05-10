@@ -1,6 +1,7 @@
 package com.example.mobileapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -38,7 +39,9 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private FirebaseAuth mAuth;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -68,7 +71,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         return fragment;
     }
 
-    Button buttonProfilIstatistikler,buttonProfilHatirlatici,buttonProfilAyarlar,buttonProfilDuzenle,buttonProfilBagisOlustur,buttonProfilBagislarim;
+    Button buttonProfilIstatistikler,buttonProfilHatirlatici,buttonProfilAyarlar,buttonProfilDuzenle,buttonProfilBagisOlustur,buttonProfilBagislarim,buttonProfilCikisYap;
     TextView textViewProfilAdSoyad;
     ImageView imageViewProfilResim;
     @Override
@@ -85,6 +88,9 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         View RootView = inflater.inflate(R.layout.fragment_profil, container, false);
         //Bagis verileri listeye çekilecek ardından this,List.get(i) gönderilecek
+
+        mAuth = FirebaseAuth.getInstance();
+
         buttonProfilIstatistikler= (Button) RootView.findViewById(R.id.buttonProfilIstatistikler);
         buttonProfilIstatistikler.setOnClickListener(this);
         buttonProfilAyarlar= (Button) RootView.findViewById(R.id.buttonProfilAyarlar);
@@ -97,6 +103,8 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         buttonProfilBagisOlustur.setOnClickListener(this);
         buttonProfilBagislarim= (Button)RootView.findViewById(R.id.buttonProfilBagislarim);
         buttonProfilBagislarim.setOnClickListener(this);
+        buttonProfilCikisYap = (Button) RootView.findViewById(R.id.buttonProfilCikisYap);
+        buttonProfilCikisYap.setOnClickListener(this);
         textViewProfilAdSoyad = (TextView) RootView.findViewById(R.id.textviewProfilAdSoyad);
         ImageView imageViewProfilResim = (ImageView) RootView.findViewById(R.id.imageViewProfilResim);
 
@@ -164,7 +172,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         if(view.getId()==buttonProfilIstatistikler.getId()){
 //            final IstatistikFragment istatistikFragment=new IstatistikFragment();
 //            setFragment(istatistikFragment);
-              Toast.makeText(getContext(),"Bu Özellik Şimdilik Kullanım Dışı",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"Bu Özellik Şimdilik Kullanım Dışı",Toast.LENGTH_SHORT).show();
 
         }else if(view.getId()==buttonProfilAyarlar.getId()){
             final AyarlarFragment ayarlarFragment=new AyarlarFragment();
@@ -185,6 +193,10 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         }else if(view.getId() == buttonProfilBagislarim.getId()){
             final BagislarimFragment bagislarimFragment = new BagislarimFragment();
             setFragment(bagislarimFragment);
+        }else if(view.getId() == buttonProfilCikisYap.getId()){
+            mAuth.signOut();
+            Intent UygulamaGiris = new Intent(getContext(),UygulamaGiris.class);
+            startActivity(UygulamaGiris);
         }
     }
 

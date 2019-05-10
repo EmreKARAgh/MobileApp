@@ -170,6 +170,7 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
 
     public void dbBagisEkle(int miktar){
         DatabaseReference yazBagislar =db.getReference().child("Bagislar").child(bagis.getBagisid());
+        DatabaseReference yazBagislarim = db.getReference().child("Kullanicilar").child(Anasayfa.kullaniciTipi).child(user.getUid()).child("YaptigimBagislar");
         String uID = user.getUid();
         if(miktar==0){
             if(!editTextBagisIcerikKGoster.getText().toString().equals("") && !editTextBagisIcerikKGoster.getText().toString().equals("0"))
@@ -177,6 +178,8 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
         }else{
             int i=Integer.parseInt(editTextBagisIcerikKGoster.getText().toString())+miktar;
             yazBagislar.child("bagiscilar").child(uID).setValue(i);
+            System.out.println("userid::"+user.getUid());
+            yazBagislarim.child(bagis.getBagisid()).setValue(i);
         }
 
     }
