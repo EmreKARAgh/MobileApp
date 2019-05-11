@@ -213,6 +213,7 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
         if(miktar==0){
             if(!editTextBagisIcerikKGoster.getText().toString().equals("") && !editTextBagisIcerikKGoster.getText().toString().equals("0"))
                 yazBagislar.child("bagiscilar").child(uID).setValue(editTextBagisIcerikKGoster.getText().toString());
+                yazBagislarim.child(bagis.getBagisid()).setValue(editTextBagisIcerikKGoster.getText().toString());
         }else{
             int i=Integer.parseInt(editTextBagisIcerikKGoster.getText().toString())+miktar;
             yazBagislar.child("bagiscilar").child(uID).setValue(i);

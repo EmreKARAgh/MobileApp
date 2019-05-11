@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfiliDuzenleFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-
+    tools:context=".ProfiliDuzenleKurumsalFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,41 +21,41 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textViewProfiliDuzenleAd"
+                    android:id="@+id/textViewProfiliDuzenleKurumsalKurumAd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleAd" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalKurumAd" />
 
                 <EditText
-                    android:id="@+id/editTextProfiliDuzenleAd"
+                    android:id="@+id/editTextProfiliDuzenleKurumsalKurumAd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="AD" />
+                    android:text="KURUM ADI" />
 
                 <TextView
-                    android:id="@+id/textViewProfiliDuzenleSoyad"
+                    android:id="@+id/textViewProfiliDuzenleKurumsalKurumNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleSoyad" />
+                    android:text="@string/editTextProfiliDuzenleKurumsalKurumNo" />
 
                 <EditText
-                    android:id="@+id/editTextProfiliDuzenleSoyad"
+                    android:id="@+id/editTextProfiliDuzenleKurumsalKurumNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="SOYAD" />
+                    android:text="@string/editTextProfiliDuzenleKurumsalKurumNo" />
 
                 <TextView
-                    android:id="@+id/textViewProfiliDuzenleAdres"
+                    android:id="@+id/textViewProfiliDuzenleKurumsalAdres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleAdres" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalAdres" />
 
                 <EditText
-                    android:id="@+id/editTextProfiliDuzenleAdres"
+                    android:id="@+id/editTextProfiliDuzenleKurumsalAdres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -66,91 +63,76 @@
                     android:text="ADRES" />
 
                 <TextView
-                    android:id="@+id/textViewProfiliDuzenleTelefon"
+                    android:id="@+id/textViewProfiliDuzenleKurumsalSosyalmedya"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleTelefon" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalSosyalmedya" />
 
                 <EditText
-                    android:id="@+id/editTextProfiliDuzenleTelefon"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="phone"
-                    />
-
-                <TextView
-                    android:id="@+id/textViewProfiliDuzenleKullaniciAdi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleKullanıcıAdı" />
-
-                <EditText
-                    android:id="@+id/editTextProfiliDuzenleKullaniciadi"
+                    android:id="@+id/editTextProfiliDuzenleKurumsalSosyalmedya"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="KULLANICI ADI" />
+                    android:text="@string/textviewKurumsalKaydolSosyalmedya" />
 
                 <TextView
-                    android:id="@+id/textViewProfiliDuzenleSosyalmedya"
+                    android:id="@+id/textViewProfiliDuzenleKurumsalTelefon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleSosyalmedya" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalTelefon" />
 
                 <EditText
-                    android:id="@+id/editTextProfiliDuzenleSosyalmedya"
+                    android:id="@+id/editTextProfiliDuzenleKurumsalTelefon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="SOSYALMEDYA" />
+                    android:inputType="phone" />
 
                 <TextView
-                    android:id="@+id/textViewProfiliDuzenleEmail"
+                    android:id="@+id/textViewProfiliDuzenleKurumsalEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleEmail" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalEmail" />
 
                 <EditText
-                    android:id="@+id/editTextProfiliDuzenleEmail"
+                    android:id="@+id/editTextProfiliDuzenleKurumsalEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textEmailAddress"
-                    android:text="EMAIL" />
+                    android:inputType="textEmailAddress" />
 
                 <TextView
-                    android:id="@+id/textViewProfiliDuzenleSifre"
+                    android:id="@+id/textViewProfiliDuzenleKurumsalSifre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleSifre" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalSifre" />
 
                 <EditText
-                    android:id="@+id/editTextProfiliDuzenleSifre"
+                    android:id="@+id/editTextProfiliDuzenleKurumsalSifre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPassword" />
 
                 <Button
-                    android:id="@+id/buttonProfiliDuzenleFotograf"
+                    android:id="@+id/buttonProfiliDuzenleKurumsalKurumFotograf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/buttonProfiliDuzenleFotograf" />
+                    android:text="@string/buttonProfiliDuzenleKurumsalKurumFotograf" />
 
                 <ImageView
-                    android:id="@+id/imageViewProfiliDuzenle"
+                    android:id="@+id/imageViewProfiliDuzenleKurumsal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:src="@tools:sample/avatars[2]" />
 
                 <Button
-                    android:id="@+id/buttonProfiliDuzenleGuncelle"
+                    android:id="@+id/buttonProfiliDuzenleKurumsalKurumGuncelle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="GÜNCELLE" />
+                    android:text="@string/buttonProfiliDuzenleKurumsalKurumGuncelle" />
+
             </LinearLayout>
             <TextView
                 android:id="@+id/textViewBagisOlusturTampon"
@@ -158,6 +140,5 @@
                 android:layout_height="100dp" />
         </LinearLayout>
     </ScrollView>
-
 
 </FrameLayout>

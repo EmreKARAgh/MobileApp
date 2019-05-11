@@ -140,6 +140,7 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
 
             final BagiscilariGosterFragment bagiscilariGosterFragment = new BagiscilariGosterFragment();
             bagiscilariGosterFragment.bagis = bagis;
+            bagisTutari = 0;
             setFragment(bagiscilariGosterFragment);
 
 

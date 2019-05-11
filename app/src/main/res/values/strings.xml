@@ -78,6 +78,15 @@
     <string name="textViewProfiliDuzenleSifre">ŞİFRE:</string>
     <string name="buttonProfilCikisYap">ÇIKIŞ YAP</string>
     <string name="buttonProfiliDuzenleFotograf">FOTOĞRAF SEÇ</string>
+    <string name="textViewProfiliDuzenleKurumsalKurumAd">KURUM ADI:</string>
+    <string name="editTextProfiliDuzenleKurumsalKurumNo">KURUM NO:</string>
+    <string name="textViewProfiliDuzenleKurumsalAdres">ADRES:</string>
+    <string name="textViewProfiliDuzenleKurumsalSosyalmedya">SOSYAL MEDYA:</string>
+    <string name="textViewProfiliDuzenleKurumsalTelefon">TELEFON:</string>
+    <string name="textViewProfiliDuzenleKurumsalEmail">EMAİL:</string>
+    <string name="textViewProfiliDuzenleKurumsalSifre">ŞİFRE:</string>
+    <string name="buttonProfiliDuzenleKurumsalKurumGuncelle">GÜNCELLE</string>
+    <string name="buttonProfiliDuzenleKurumsalKurumFotograf">FOTOĞRAF SEÇ</string>
 
 
 </resources>

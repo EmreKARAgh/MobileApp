@@ -24,7 +24,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,12 +42,12 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProfiliDuzenleFragment.OnFragmentInteractionListener} interface
+ * {@link ProfiliDuzenleKurumsalFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ProfiliDuzenleFragment#newInstance} factory method to
+ * Use the {@link ProfiliDuzenleKurumsalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfiliDuzenleFragment extends Fragment implements View.OnClickListener{
+public class ProfiliDuzenleKurumsalFragment extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,7 +59,7 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
 
     private OnFragmentInteractionListener mListener;
 
-    public ProfiliDuzenleFragment() {
+    public ProfiliDuzenleKurumsalFragment() {
         // Required empty public constructor
     }
 
@@ -70,11 +69,11 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfiliDuzenleFragment.
+     * @return A new instance of fragment ProfiliDuzenleKurumsalFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfiliDuzenleFragment newInstance(String param1, String param2) {
-        ProfiliDuzenleFragment fragment = new ProfiliDuzenleFragment();
+    public static ProfiliDuzenleKurumsalFragment newInstance(String param1, String param2) {
+        ProfiliDuzenleKurumsalFragment fragment = new ProfiliDuzenleKurumsalFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -91,20 +90,21 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
         }
     }
 
-    EditText editTextProfiliDuzenleAd,editTextProfiliDuzenleSoyad,editTextProfiliDuzenleEmail,
-            editTextProfiliDuzenleTelefon,editTextProfiliDuzenleSifre,editTextProfiliDuzenleKullaniciadi,
-            editTextProfiliDuzenleAdres,editTextProfiliDuzenleSosyalmedya;
+    EditText editTextProfiliDuzenleKurumsalKurumAd,editTextProfiliDuzenleKurumsalKurumNo,
+            editTextProfiliDuzenleKurumsalTelefon,editTextProfiliDuzenleKurumsalSifre,
+            editTextProfiliDuzenleKurumsalAdres,editTextProfiliDuzenleKurumsalSosyalmedya,
+            editTextProfiliDuzenleKurumsalEmail;
 
-    ImageView imageViewProfiliDuzenle;
+    ImageView imageViewProfiliDuzenleKurumsal;
 
-    String editTextProfiliDuzenleAdtut,editTextProfiliDuzenleSoyadtut,editTextProfiliDuzenleEmailtut,
-            editTextProfiliDuzenleTelefontut,editTextProfiliDuzenleSifretut,editTextProfiliDuzenleKullaniciaditut,
-            editTextProfiliDuzenleAdrestut,editTextProfiliDuzenleSosyalmedyatut;
+    String editTextProfiliDuzenleKurumsalKurumAdtut,editTextProfiliDuzenleKurumsalKurumNotut,
+            editTextProfiliDuzenleKurumsalTelefontut,editTextProfiliDuzenleKurumsalSifretut,
+            editTextProfiliDuzenleKurumsalAdrestut,editTextProfiliDuzenleKurumsalSosyalmedyatut,
+            editTextProfiliDuzenleKurumsalEmailtut;
 
-    Button buttonProfiliDuzenleGuncelle,buttonProfiliDuzenleFotograf;
+    Button buttonProfiliDuzenleKurumsalGuncelle,buttonProfiliDuzenleKurumsalFotograf;
 
-    String ad,soyad,adres,telefon,kullaniciAdi,sosyalMedya,email,resimKey;
-
+    String kurumAdi,kurumNo,adres,telefon,sosyalMedya,email,resimKey;
 
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
@@ -117,28 +117,30 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
     private final int PICK_IMAGE_REQUEST=71;
     private Uri filePath;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View RootView = inflater.inflate(R.layout.fragment_profili_duzenle, container, false);
+        // Inflate the layout for this fragment
+        View RootView = inflater.inflate(R.layout.fragment_profili_duzenle_kurumsal, container, false);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        editTextProfiliDuzenleAd=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleAd);
-        editTextProfiliDuzenleEmail=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleEmail);
-        editTextProfiliDuzenleSoyad=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleSoyad);
-        editTextProfiliDuzenleTelefon=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleTelefon);
-        editTextProfiliDuzenleKullaniciadi=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKullaniciadi);
-        editTextProfiliDuzenleAdres=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleAdres);
-        editTextProfiliDuzenleSosyalmedya=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleSosyalmedya);
-        editTextProfiliDuzenleSifre=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleSifre);
-        imageViewProfiliDuzenle=(ImageView)RootView.findViewById(R.id.imageViewProfiliDuzenle);
-        buttonProfiliDuzenleGuncelle=(Button)RootView.findViewById(R.id.buttonProfiliDuzenleGuncelle);
-        buttonProfiliDuzenleGuncelle.setOnClickListener(this);
-        buttonProfiliDuzenleFotograf=(Button)RootView.findViewById(R.id.buttonProfiliDuzenleFotograf);
-        buttonProfiliDuzenleFotograf.setOnClickListener(this);
+        editTextProfiliDuzenleKurumsalKurumAd = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalKurumAd);
+        editTextProfiliDuzenleKurumsalKurumNo = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalKurumNo);
+        editTextProfiliDuzenleKurumsalTelefon = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalTelefon);
+        editTextProfiliDuzenleKurumsalSifre = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalSifre);
+        editTextProfiliDuzenleKurumsalAdres = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalAdres);
+        editTextProfiliDuzenleKurumsalSosyalmedya = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalSosyalmedya);
+        editTextProfiliDuzenleKurumsalEmail = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalEmail);
+        imageViewProfiliDuzenleKurumsal=(ImageView)RootView.findViewById(R.id.imageViewProfiliDuzenleKurumsal);
+        buttonProfiliDuzenleKurumsalGuncelle=(Button)RootView.findViewById(R.id.buttonProfiliDuzenleKurumsalKurumGuncelle);
 
-        verileriCekBireysel(user.getUid());
+        buttonProfiliDuzenleKurumsalGuncelle.setOnClickListener(this);
+        buttonProfiliDuzenleKurumsalFotograf=(Button)RootView.findViewById(R.id.buttonProfiliDuzenleKurumsalKurumFotograf);
+        buttonProfiliDuzenleKurumsalFotograf.setOnClickListener(this);
+
+        verileriCekKurumsal(user.getUid());
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         mAuth = FirebaseAuth.getInstance();
@@ -149,34 +151,30 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
         return RootView;
     }
 
-
     @Override
-    public void onClick(View view) {
-        if(view.getId()==buttonProfiliDuzenleGuncelle.getId()){
-            editTextProfiliDuzenleAdtut = editTextProfiliDuzenleAd.getText().toString();
-            editTextProfiliDuzenleSoyadtut = editTextProfiliDuzenleSoyad.getText().toString();
-            editTextProfiliDuzenleAdrestut = editTextProfiliDuzenleAdres.getText().toString();
-            editTextProfiliDuzenleTelefontut = editTextProfiliDuzenleTelefon.getText().toString();
-            editTextProfiliDuzenleKullaniciaditut = editTextProfiliDuzenleKullaniciadi.getText().toString();
-            editTextProfiliDuzenleSosyalmedyatut = editTextProfiliDuzenleSosyalmedya.getText().toString();
-            editTextProfiliDuzenleEmailtut = editTextProfiliDuzenleEmail.getText().toString();
-            editTextProfiliDuzenleSifretut = editTextProfiliDuzenleSifre.getText().toString();
+    public void onClick(View v) {
+        if(v.getId()==buttonProfiliDuzenleKurumsalGuncelle.getId()){
+            editTextProfiliDuzenleKurumsalKurumAdtut = editTextProfiliDuzenleKurumsalKurumAd.getText().toString();
+            editTextProfiliDuzenleKurumsalKurumNotut = editTextProfiliDuzenleKurumsalKurumNo.getText().toString();
+            editTextProfiliDuzenleKurumsalTelefontut = editTextProfiliDuzenleKurumsalTelefon.getText().toString();
+            editTextProfiliDuzenleKurumsalSifretut = editTextProfiliDuzenleKurumsalSifre.getText().toString();
+            editTextProfiliDuzenleKurumsalAdrestut = editTextProfiliDuzenleKurumsalAdres.getText().toString();
+            editTextProfiliDuzenleKurumsalSosyalmedyatut = editTextProfiliDuzenleKurumsalSosyalmedya.getText().toString();
+            editTextProfiliDuzenleKurumsalEmailtut = editTextProfiliDuzenleKurumsalEmail.getText().toString();
 
-            DatabaseReference data1 = db.getReference().child("Kullanicilar").child("Bireysel").child(user.getUid());
+            DatabaseReference data1 = db.getReference().child("Kullanicilar").child("Kurumsal").child(user.getUid());
 
-            data1.child("ad").setValue(editTextProfiliDuzenleAdtut);
+            data1.child("kurumAdi").setValue(editTextProfiliDuzenleKurumsalKurumAdtut);
 
-            data1.child("soyad").setValue(editTextProfiliDuzenleSoyadtut);
+            data1.child("kurumNo").setValue(editTextProfiliDuzenleKurumsalKurumNotut);
 
-            data1.child("adres").setValue(editTextProfiliDuzenleAdrestut);
+            data1.child("adres").setValue(editTextProfiliDuzenleKurumsalAdrestut);
 
-            data1.child("telefon").setValue(editTextProfiliDuzenleTelefontut);
+            data1.child("telefon").setValue(editTextProfiliDuzenleKurumsalTelefontut);
 
-            data1.child("kullaniciAdi").setValue(editTextProfiliDuzenleKullaniciaditut);
+            data1.child("sosyalMedya").setValue(editTextProfiliDuzenleKurumsalSosyalmedyatut);
 
-            data1.child("sosyalMedya").setValue(editTextProfiliDuzenleSosyalmedyatut);
-
-            user.updateEmail(editTextProfiliDuzenleEmailtut)
+            user.updateEmail(editTextProfiliDuzenleKurumsalEmailtut)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -186,9 +184,8 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
                         }
                     });
 
-
-            String newPassword = editTextProfiliDuzenleSifretut;
-            if(!editTextProfiliDuzenleSifretut.equals("")) {
+            String newPassword = editTextProfiliDuzenleKurumsalSifretut;
+            if(!editTextProfiliDuzenleKurumsalSifretut.equals("")) {
                 user.updatePassword(newPassword)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -210,14 +207,15 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
             uploadFile(user.getUid());
 
             Toast.makeText(getContext(),"Verileriniz Güncellenmiştir.",Toast.LENGTH_LONG).show();
-        }else if(view.getId() == buttonProfiliDuzenleFotograf.getId()){
+
+
+        }else if(v.getId()==buttonProfiliDuzenleKurumsalFotograf.getId()){
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction((Intent.ACTION_GET_CONTENT));
             startActivityForResult(Intent.createChooser(intent,"Select Picture"),PICK_IMAGE_REQUEST);
         }
     }
-
 
     private boolean uploadFile(String Uid){
         boolean returned = false;
@@ -260,7 +258,6 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
         return returned;
     }
 
-
     public void onActivityResult(int requestCode,int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -268,43 +265,37 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
             filePath = data.getData();
             try{
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(),filePath);
-                imageViewProfiliDuzenle.setImageBitmap(bitmap);
+                imageViewProfiliDuzenleKurumsal.setImageBitmap(bitmap);
             }catch(IOException e){
                 e.printStackTrace();
             }
         }
     }
 
-    private void verileriCekBireysel(String Uid){
+    private void verileriCekKurumsal(final String Uid){
         FirebaseDatabase db = FirebaseDatabase.getInstance();
 
-        DatabaseReference okuBagislar =db.getReference().child("Kullanicilar").child("Bireysel").child(Uid);
+        DatabaseReference okuBagislar =db.getReference().child("Kullanicilar").child("Kurumsal").child(Uid);
         okuBagislar.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                ad = dataSnapshot.child("ad").getValue().toString();
-                editTextProfiliDuzenleAd.setText(ad);
-
-                soyad = dataSnapshot.child("soyad").getValue().toString();
-                editTextProfiliDuzenleSoyad.setText(soyad);
+                kurumAdi = dataSnapshot.child("kurumAdi").getValue().toString();
+                editTextProfiliDuzenleKurumsalKurumAd.setText(kurumAdi);
 
                 adres = dataSnapshot.child("adres").getValue().toString();
-                editTextProfiliDuzenleAdres.setText(adres);
+                editTextProfiliDuzenleKurumsalAdres.setText(adres);
+
+                kurumNo = dataSnapshot.child("kurumNo").getValue().toString();
+                editTextProfiliDuzenleKurumsalKurumNo.setText(kurumNo);
 
                 telefon = dataSnapshot.child("telefon").getValue().toString();
-                editTextProfiliDuzenleTelefon.setText(telefon);
-
-                kullaniciAdi = dataSnapshot.child("kullaniciAdi").getValue().toString();
-                editTextProfiliDuzenleKullaniciadi.setText(kullaniciAdi);
+                editTextProfiliDuzenleKurumsalTelefon.setText(telefon);
 
                 sosyalMedya = dataSnapshot.child("sosyalMedya").getValue().toString();
-                editTextProfiliDuzenleSosyalmedya.setText(sosyalMedya);
+                editTextProfiliDuzenleKurumsalSosyalmedya.setText(sosyalMedya);
 
                 email = dataSnapshot.child("email").getValue().toString();
-                editTextProfiliDuzenleEmail.setText(email);
-
-
+                editTextProfiliDuzenleKurumsalEmail.setText(email);
 
                 resimKey = " ";
                 try {
@@ -346,8 +337,6 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
         super.onDetach();
         mListener = null;
     }
-
-
 
     /**
      * This interface must be implemented by activities that contain this

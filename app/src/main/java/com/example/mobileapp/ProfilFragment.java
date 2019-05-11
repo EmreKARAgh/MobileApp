@@ -180,7 +180,12 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
 
         }else if(view.getId()==buttonProfilDuzenle.getId()){
             final ProfiliDuzenleFragment profiliDuzenleFragment=new ProfiliDuzenleFragment();
+            final ProfiliDuzenleKurumsalFragment profiliDuzenleKurumsalFragment = new ProfiliDuzenleKurumsalFragment();
+            if(Anasayfa.kullaniciTipi.equals("Bireysel")){
             setFragment(profiliDuzenleFragment);
+            }else{
+                setFragment(profiliDuzenleKurumsalFragment);
+            }
 
         }else if(view.getId()==buttonProfilHatirlatici.getId()){
 //            final HatirlaticiFragment hatirlaticiFragment=new HatirlaticiFragment();
