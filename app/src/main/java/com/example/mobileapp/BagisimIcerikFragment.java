@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -92,7 +93,7 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
     TextView textViewBagisimIcerikBaslik,textViewBagisimIcerikBilgi,textViewBagisimIcerikKurum,textViewBagisimIcerikBagisTutari;
     ImageView imageViewBagisimIcerikResim;
 
-    Button buttonBagisimIcerikBagiscilariGoster;
+    Button buttonBagisimIcerikBagiscilariGoster, buttonBagisimIcerikBagisSil;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -109,6 +110,8 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
 
         buttonBagisimIcerikBagiscilariGoster = (Button) RootView.findViewById(R.id.buttonBagisimIcerikBagiscilariGoster);
         buttonBagisimIcerikBagiscilariGoster.setOnClickListener(this);
+        buttonBagisimIcerikBagisSil = (Button) RootView.findViewById(R.id.buttonBagisimIcerikBagisSil);
+        buttonBagisimIcerikBagisSil.setOnClickListener(this);
 
         imageViewBagisimIcerikResim = (ImageView) RootView.findViewById(R.id.imageViewBagisimIcerikResim);
 
@@ -142,9 +145,13 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
             bagiscilariGosterFragment.bagis = bagis;
             bagisTutari = 0;
             setFragment(bagiscilariGosterFragment);
-
-
-
+        }
+        else if(v.getId() == buttonBagisimIcerikBagisSil.getId()){
+            DatabaseReference ref = db.getReference().child("Bagislar").child(this.bagis.getBagisid());
+            ref.removeValue();
+            final  BagislarimFragment bagislarimFragment = new BagislarimFragment();
+            Toast.makeText(getContext(),"Bağış Başarıyla Silindi",Toast.LENGTH_LONG).show();
+            setFragment(bagislarimFragment);
         }
     }
     private void bagisTutariHesapla(){

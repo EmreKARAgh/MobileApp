@@ -7,25 +7,37 @@
 
     <ScrollView
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
 
         <HorizontalScrollView
             android:id="@+id/hscrll1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TableLayout
                     android:id="@+id/tableLayoutBagiscilariGoster"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TableLayout>
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"></TableLayout>
+
+                <TextView
+                    android:id="@+id/textViewBagiscilariGosterTampon"
+                    android:layout_width="match_parent"
+                    android:layout_height="730dp" />
+
+
             </LinearLayout>
         </HorizontalScrollView>
+
+
+
+
     </ScrollView>
 
 

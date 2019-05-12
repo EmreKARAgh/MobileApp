@@ -107,6 +107,26 @@
                 android:ems="10"
                 android:inputType="textPassword" />
 
+            <!--
+
+            alttaki şifre doğrula üstteki şifre isteme
+
+             -->
+
+            <TextView
+                android:id="@+id/textviewBireyselKaydolSifreDogrula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textviewBireyselKaydolSifreDogrula" />
+
+            <EditText
+                android:id="@+id/edittextBireyselKaydolSifreDogrula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+
             <TextView
                 android:id="@+id/textviewBireyselKaydolSosyalmedya"
                 android:layout_width="match_parent"

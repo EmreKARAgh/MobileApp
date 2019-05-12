@@ -24,6 +24,7 @@
     <string name="textviewBireyselKaydolTelefon">TELEFON :</string>
     <string name="textviewBireyselKaydolKullaniciadi">KULLANICI ADI :</string>
     <string name="textviewBireyselKaydolSifre">ŞİFRE* :</string>
+    <string name="textviewBireyselKaydolSifreDogrula">ŞİFRE DOĞRULA* :</string>
     <string name="textviewBireyselKaydolGuvenliksorusu">GÜVENLİK SORUSU :</string>
     <string name="textviewBireyselKaydolGuvenlikcevabi">GÜVENLİK SORUSU CEVABI :</string>
     <string name="textviewBireyselKaydolSosyalmedya">SOSYAL MEDYA :</string>
@@ -87,6 +88,8 @@
     <string name="textViewProfiliDuzenleKurumsalSifre">ŞİFRE:</string>
     <string name="buttonProfiliDuzenleKurumsalKurumGuncelle">GÜNCELLE</string>
     <string name="buttonProfiliDuzenleKurumsalKurumFotograf">FOTOĞRAF SEÇ</string>
+    <string name="buttonBagisimIcerikBagisSil">BAĞIŞI SİL</string>
+
 
 
 </resources>

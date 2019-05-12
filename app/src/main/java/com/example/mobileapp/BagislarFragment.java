@@ -125,7 +125,7 @@ public class BagislarFragment extends Fragment {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                linearLayoutBagislar.removeViewAt(1);
+
             }
 
             @Override

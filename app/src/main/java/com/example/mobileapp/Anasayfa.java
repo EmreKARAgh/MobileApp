@@ -1,5 +1,6 @@
 package com.example.mobileapp;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,6 +29,7 @@ public class Anasayfa extends AppCompatActivity
     public static Kurum currentKurum = new Kurum();
     public static String kullaniciTipi;
 
+    BottomNavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class Anasayfa extends AppCompatActivity
         final KurumlarFragment kurumlarFragment=new KurumlarFragment();
         setFragment(anasayfaFragment);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -64,6 +66,31 @@ public class Anasayfa extends AppCompatActivity
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        if(navigation.getSelectedItemId()==R.id.navigation_anasayfa){
+            minimizeApp();
+        }else{
+            String strFragment=getSupportFragmentManager().getFragments().toString();
+            String currentFragment;
+            currentFragment=strFragment.substring(1,strFragment.indexOf('{'));
+            if(currentFragment.equals("BagislarFragment") || currentFragment.equals("KurumlarFragment") || currentFragment.equals("ProfilFragment")){
+                final AnasayfaFragment anasayfaFragment=new AnasayfaFragment();
+                setFragment(anasayfaFragment);
+                navigation.setSelectedItemId(R.id.navigation_anasayfa);
+            }else
+                super.onBackPressed();
+        }
+
+    }
+    public void minimizeApp() {
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+    }
+
+
 
     private void setFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();

@@ -65,6 +65,9 @@ public class BireyselKaydol extends AppCompatActivity implements View.OnClickLis
     EditText edittextBireyselKaydolSifre;
     String edittextBireyselKaydolSifretut;
 
+    EditText editTextBireyselKaydolSifreDogrulama;
+    String edittextBireyselKaydolSifreDogrulamatut;
+
     EditText edittextBireyselKaydolSosyalmedya;
     String edittextBireyselKaydolSosyalmedyatut;
 
@@ -107,6 +110,8 @@ public class BireyselKaydol extends AppCompatActivity implements View.OnClickLis
 
         edittextBireyselKaydolSifre = (EditText) findViewById(R.id.edittextBireyselKaydolSifre);
 
+        editTextBireyselKaydolSifreDogrulama = (EditText) findViewById(R.id.edittextBireyselKaydolSifreDogrula);
+
 
         edittextBireyselKaydolSosyalmedya = (EditText) findViewById(R.id.edittextBireyselKaydolSosyalmedya);
 
@@ -121,13 +126,37 @@ public class BireyselKaydol extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+        System.out.println(" şifre=  "+edittextBireyselKaydolSifre.getText());
+        System.out.println(" şifre dogrula=  "+editTextBireyselKaydolSifreDogrulama.getText());
+
+        edittextBireyselKaydolSifretut = edittextBireyselKaydolSifre.getText().toString();
+        edittextBireyselKaydolSifreDogrulamatut = editTextBireyselKaydolSifreDogrulama.getText().toString();
+
         if(v.getId() == buttonBireyselKaydolKayitol.getId()){
-            edittextBireyselKaydolEmailtut = edittextBireyselKaydolEmail.getText().toString(); //Email tut
-            edittextBireyselKaydolSifretut = edittextBireyselKaydolSifre.getText().toString();//Şifreyi tut
-            if(edittextBireyselKaydolEmailtut.equals("") && edittextBireyselKaydolSifretut.equals("")){
-                Toast.makeText(getApplicationContext(),"Email ve Şifre Giriniz.",Toast.LENGTH_LONG).show();
-            }else
-                createAccount(edittextBireyselKaydolEmailtut,edittextBireyselKaydolSifretut);
+
+            if(!(edittextBireyselKaydolSifreDogrulamatut.equals(edittextBireyselKaydolSifretut))){
+
+
+
+                Toast.makeText(getApplicationContext(),"Girilen Şifreler Birbirini Tutmuyo Hayırdır.",Toast.LENGTH_LONG).show();
+
+
+            }else{
+
+
+                edittextBireyselKaydolEmailtut = edittextBireyselKaydolEmail.getText().toString(); //Email tut
+                edittextBireyselKaydolSifretut = edittextBireyselKaydolSifre.getText().toString();//Şifreyi tut
+                if(edittextBireyselKaydolEmailtut.equals("") && edittextBireyselKaydolSifretut.equals("")){
+                    Toast.makeText(getApplicationContext(),"Email ve Şifre Giriniz.",Toast.LENGTH_LONG).show();
+                }else{
+                    createAccount(edittextBireyselKaydolEmailtut,edittextBireyselKaydolSifretut);
+                }
+            }
+
+
+
+
+
 
         }
 

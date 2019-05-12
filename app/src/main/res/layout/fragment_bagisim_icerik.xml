@@ -52,14 +52,14 @@
 
                     <TextView
                         android:id="@+id/textViewBagisimIcerikBagisTutariBerlirtec"
-                        android:layout_width="156dp"
+                        android:layout_width="165dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="Toplam Bağış Tutarı: " />
 
                     <TextView
                         android:id="@+id/textViewBagisimIcerikBagisTutari"
-                        android:layout_width="268dp"
+                        android:layout_width="245dp"
                         android:layout_height="match_parent" />
 
                 </LinearLayout>
@@ -70,7 +70,15 @@
                     android:layout_height="wrap_content"
                     android:text="BAGİSCİLARİ GOSTER"/>
 
-/>
+                <Button
+                    android:id="@+id/buttonBagisimIcerikBagisSil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/holo_red_dark"
+                    android:text="@string/buttonBagisimIcerikBagisSil"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+                />
             </LinearLayout>
 
             <TextView
