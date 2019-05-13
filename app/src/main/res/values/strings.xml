@@ -90,6 +90,13 @@
     <string name="buttonProfiliDuzenleKurumsalKurumFotograf">FOTOĞRAF SEÇ</string>
     <string name="buttonBagisimIcerikBagisSil">BAĞIŞI SİL</string>
 
-
+    <string name="textViewBagisGuncelleBaslik">BAŞLIK:</string>
+    <string name="textViewBagisGuncelleFotograf">FOTOĞRAF:</string>
+    <string name="buttonBagisGuncelleFotograf">FOTOĞRAF SEÇ</string>
+    <string name="textViewBagisGuncelleBilgi">BİLGİ:</string>
+    <string name="textViewBagisGuncelleSmsAdresi">SMS ADRESİ:</string>
+    <string name="textViewBagisGuncelleSmsMetni">SMS METNİ:</string>
+    <string name="textViewBagisGuncelleOzet">ÖZET:</string>
+    <string name="buttonBagisimIcerikBagisGuncelle">Bağışı Düzenle</string>
 
 </resources>

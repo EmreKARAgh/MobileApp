@@ -20,7 +20,8 @@ public class Anasayfa extends AppCompatActivity
         DestekOlFragment.OnFragmentInteractionListener,BildirimlerFragment.OnFragmentInteractionListener,HakkindaFragment.OnFragmentInteractionListener,
         KurumlarFragment.OnFragmentInteractionListener,KurumDetayFragment.OnFragmentInteractionListener,BagisOlusturFragment.OnFragmentInteractionListener,
         BagislarimFragment.OnFragmentInteractionListener,BagisIcerikFragment.OnFragmentInteractionListener, BagisimIcerikFragment.OnFragmentInteractionListener,
-        BagiscilariGosterFragment.OnFragmentInteractionListener,KurumBagislarFragment.OnFragmentInteractionListener,ProfiliDuzenleKurumsalFragment.OnFragmentInteractionListener
+        BagiscilariGosterFragment.OnFragmentInteractionListener,KurumBagislarFragment.OnFragmentInteractionListener,ProfiliDuzenleKurumsalFragment.OnFragmentInteractionListener,
+        BagisGuncelleFragment.OnFragmentInteractionListener
 
 {
 

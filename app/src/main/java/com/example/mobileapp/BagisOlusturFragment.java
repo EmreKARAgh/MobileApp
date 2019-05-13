@@ -282,7 +282,7 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
             progressDialog.show();
 
             StorageReference riversRef = storageReferance.child("images/"+bagisKey+".jpg");
-
+            
             riversRef.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override

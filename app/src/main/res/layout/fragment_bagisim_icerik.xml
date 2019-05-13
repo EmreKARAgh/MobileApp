@@ -78,6 +78,12 @@
                     android:text="@string/buttonBagisimIcerikBagisSil"
                     android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
+                <Button
+                    android:id="@+id/buttonBagisimIcerikBagisGuncelle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buttonBagisimIcerikBagisGuncelle" />
+
                 />
             </LinearLayout>
 

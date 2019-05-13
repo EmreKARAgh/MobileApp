@@ -93,7 +93,7 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
     TextView textViewBagisimIcerikBaslik,textViewBagisimIcerikBilgi,textViewBagisimIcerikKurum,textViewBagisimIcerikBagisTutari;
     ImageView imageViewBagisimIcerikResim;
 
-    Button buttonBagisimIcerikBagiscilariGoster, buttonBagisimIcerikBagisSil;
+    Button buttonBagisimIcerikBagiscilariGoster, buttonBagisimIcerikBagisSil, buttonBagisimIcerikBagisGuncelle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -113,6 +113,8 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
         buttonBagisimIcerikBagisSil = (Button) RootView.findViewById(R.id.buttonBagisimIcerikBagisSil);
         buttonBagisimIcerikBagisSil.setOnClickListener(this);
 
+        buttonBagisimIcerikBagisGuncelle = (Button) RootView.findViewById(R.id.buttonBagisimIcerikBagisGuncelle);
+        buttonBagisimIcerikBagisGuncelle.setOnClickListener(this);
         imageViewBagisimIcerikResim = (ImageView) RootView.findViewById(R.id.imageViewBagisimIcerikResim);
 
         if(bagis.resimKey != null){
@@ -152,6 +154,11 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
             final  BagislarimFragment bagislarimFragment = new BagislarimFragment();
             Toast.makeText(getContext(),"Bağış Başarıyla Silindi",Toast.LENGTH_LONG).show();
             setFragment(bagislarimFragment);
+        }
+        else if(v.getId() == buttonBagisimIcerikBagisGuncelle.getId()){
+            final BagisGuncelleFragment bagisGuncelleFragment = new BagisGuncelleFragment();
+            bagisGuncelleFragment.bagis = bagis;
+            setFragment(bagisGuncelleFragment);
         }
     }
     private void bagisTutariHesapla(){
