@@ -89,7 +89,7 @@ public class KurumBagislarFragment extends Fragment {
     public void verileriCek(){
         DatabaseReference okuBagislarim;
         try {
-            okuBagislarim = db.getReference().child("Kullanicilar").child("Kurumsal").child(kurum.getUid()).child("BagislarimFragment");
+            okuBagislarim = db.getReference().child("Kullanicilar").child("Kurumsal").child(kurum.getUid()).child("Bagislarim");
         }catch (Exception e){
             e.printStackTrace();
             return;

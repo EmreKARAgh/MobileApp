@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,6 +33,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
@@ -275,50 +278,40 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
 
     private void uploadFile(){
 
-        if(filePath != null){
+        if((BitmapDrawable) imageviewBagisOlusturFotograf.getDrawable() != null){
 
-            final ProgressDialog progressDialog = new ProgressDialog(getContext());
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
+
+            imageviewBagisOlusturFotograf.setDrawingCacheEnabled(true);
+            imageviewBagisOlusturFotograf.buildDrawingCache();
+            Bitmap bitmap2 =((BitmapDrawable) imageviewBagisOlusturFotograf.getDrawable()).getBitmap();
+            Bitmap bitmap= null;
+            bitmap =  getResizedBitmap(bitmap2,500,500);
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+
+
+
+            byte[] data = baos.toByteArray();
 
             StorageReference riversRef = storageReferance.child("images/"+bagisKey+".jpg");
-            
-            riversRef.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
-                            Toast.makeText(getContext(),"File Uploaded", Toast.LENGTH_LONG).show();
-                            if(Anasayfa.kullaniciTipi.equals("Kurumsal")){
-                                if(!isNetworkAvailable(getContext())) {
-                                    Toast.makeText(getContext(),"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
-                                }else{
-                                dbBagisEkleKurumsal(true);}
-                            }else{
-                                if(!isNetworkAvailable(getContext())) {
-                                    Toast.makeText(getContext(),"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
-                                }else{
-                                dbBagisEkleBireysel(true);}
-                            }
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            // Handle unsuccessful uploads
-                            progressDialog.dismiss();
-                            Toast.makeText(getContext(), exception.getMessage() , Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
-                            progressDialog.setMessage(((int)progress)+"% Uploaded...");
-                        }
-                    });
+            UploadTask uploadTask = riversRef.putBytes(data);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
 
-        }else{
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                }
+            });
+
+
+        }
+
+        else{
             if(Anasayfa.kullaniciTipi.equals("Kurumsal")){
                 dbBagisEkleKurumsal(false);
             }else{
@@ -326,6 +319,18 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
             }
             //filepath bos hata kısmı
         }
+    }
+    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+
+        Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
+        return resizedBitmap;
     }
 
 }

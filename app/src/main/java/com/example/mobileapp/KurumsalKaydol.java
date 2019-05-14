@@ -3,6 +3,8 @@ package com.example.mobileapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -29,6 +31,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class KurumsalKaydol extends AppCompatActivity implements View.OnClickListener {
@@ -143,7 +146,7 @@ public class KurumsalKaydol extends AppCompatActivity implements View.OnClickLis
             kurum = new Kurum(edittextKurumsalKaydolKurumaditut, edittextKurumsalKaydolAdrestut, edittextKurumsalKaydolKurumnotut, edittextKurumsalKaydolTelefontut, edittextKurumsalKaydolSosyalmedyatut, edittextKurumsalKaydolEmailtut,(Uid+".jpg") , Uid);
         }
         else {
-            kurum = new Kurum(edittextKurumsalKaydolKurumaditut, edittextKurumsalKaydolAdrestut, edittextKurumsalKaydolKurumnotut, edittextKurumsalKaydolTelefontut, edittextKurumsalKaydolSosyalmedyatut, edittextKurumsalKaydolEmailtut , Uid);
+            kurum = new Kurum(edittextKurumsalKaydolKurumaditut, edittextKurumsalKaydolAdrestut, edittextKurumsalKaydolKurumnotut, edittextKurumsalKaydolTelefontut, edittextKurumsalKaydolSosyalmedyatut, edittextKurumsalKaydolEmailtut ," ", Uid);
         }
         DatabaseReference kullaniciEkle =db.getReference().child("Kullanicilar").child("Kurumsal");
         kullaniciEkle.child(Uid).setValue(kurum);
@@ -197,43 +200,52 @@ public class KurumsalKaydol extends AppCompatActivity implements View.OnClickLis
 
     private boolean uploadFile(String Uid){
         boolean returned = false;
-        if(filePath != null){
+        if((BitmapDrawable) imageviewKurumsalKaydolFotograf.getDrawable() != null){
 
-            final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
+
+            imageviewKurumsalKaydolFotograf.setDrawingCacheEnabled(true);
+            imageviewKurumsalKaydolFotograf.buildDrawingCache();
+            Bitmap bitmap2 =((BitmapDrawable) imageviewKurumsalKaydolFotograf.getDrawable()).getBitmap();
+            Bitmap bitmap= null;
+            bitmap =  getResizedBitmap(bitmap2,500,500);
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+
+
+
+            byte[] data = baos.toByteArray();
 
             StorageReference riversRef = storageReferance.child("kullanicilar/"+Uid+".jpg");
+            UploadTask uploadTask = riversRef.putBytes(data);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
 
-            riversRef.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(),"File Uploaded", Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            // Handle unsuccessful uploads
-                            progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), exception.getMessage() , Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
-                            progressDialog.setMessage(((int)progress)+"% Uploaded...");
-                        }
-                    });
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                }
+            });
+
             returned = true;
         }
-        else{
-            //filepath bos hata kısmı
-        }
+
         return returned;
+    }
+    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+
+        Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
+        return resizedBitmap;
     }
 
 }
