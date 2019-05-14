@@ -3,6 +3,7 @@ package com.example.mobileapp;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -125,7 +126,6 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
                 @Override
                 public void onSuccess(byte[] bytes) {
                     Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    bmp = Bitmap.createScaledBitmap(bmp, 480, 240, false);
                     BagisimIcerikFragment.this.imageViewBagisimIcerikResim.setImageBitmap(bmp);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -137,29 +137,39 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
         }
         return RootView;
     }
-
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(conMan.getActiveNetworkInfo() != null && conMan.getActiveNetworkInfo().isConnected())
+            return true;
+        else
+            return false;
+    }
     @Override
     public void onClick(View v) {
-        if(v.getId() == buttonBagisimIcerikBagiscilariGoster.getId()){
+        if(!isNetworkAvailable(getContext())) {
+            Toast.makeText(getContext(),"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
+        }else{
+            if(v.getId() == buttonBagisimIcerikBagiscilariGoster.getId()){
+                final BagiscilariGosterFragment bagiscilariGosterFragment = new BagiscilariGosterFragment();
+                bagiscilariGosterFragment.bagis = bagis;
+                bagisTutari = 0;
+                setFragment(bagiscilariGosterFragment);
+            }
+            else if(v.getId() == buttonBagisimIcerikBagisSil.getId()){
+                DatabaseReference ref = db.getReference().child("Bagislar").child(this.bagis.getBagisid());
+                ref.removeValue();
+                final  BagislarimFragment bagislarimFragment = new BagislarimFragment();
+                Toast.makeText(getContext(),"Bağış Başarıyla Silindi",Toast.LENGTH_LONG).show();
+                setFragment(bagislarimFragment);
+            }
+            else if(v.getId() == buttonBagisimIcerikBagisGuncelle.getId()){
+                final BagisGuncelleFragment bagisGuncelleFragment = new BagisGuncelleFragment();
+                bagisGuncelleFragment.bagis = bagis;
+                setFragment(bagisGuncelleFragment);
+            }
+        }
 
 
-            final BagiscilariGosterFragment bagiscilariGosterFragment = new BagiscilariGosterFragment();
-            bagiscilariGosterFragment.bagis = bagis;
-            bagisTutari = 0;
-            setFragment(bagiscilariGosterFragment);
-        }
-        else if(v.getId() == buttonBagisimIcerikBagisSil.getId()){
-            DatabaseReference ref = db.getReference().child("Bagislar").child(this.bagis.getBagisid());
-            ref.removeValue();
-            final  BagislarimFragment bagislarimFragment = new BagislarimFragment();
-            Toast.makeText(getContext(),"Bağış Başarıyla Silindi",Toast.LENGTH_LONG).show();
-            setFragment(bagislarimFragment);
-        }
-        else if(v.getId() == buttonBagisimIcerikBagisGuncelle.getId()){
-            final BagisGuncelleFragment bagisGuncelleFragment = new BagisGuncelleFragment();
-            bagisGuncelleFragment.bagis = bagis;
-            setFragment(bagisGuncelleFragment);
-        }
     }
     private void bagisTutariHesapla(){
         DatabaseReference ref = db.getReference().child("Bagislar").child(this.bagis.getBagisid()).child("bagiscilar");

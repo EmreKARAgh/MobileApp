@@ -31,7 +31,6 @@ public class ObjeGorsel extends android.support.v7.widget.AppCompatImageView  {
                 @Override
                 public void onSuccess(byte[] bytes) {
                     Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    // bmp = Bitmap.createScaledBitmap(bmp, 480, 240, false);
                     ObjeGorsel.this.setImageBitmap(bmp);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -59,7 +58,6 @@ public class ObjeGorsel extends android.support.v7.widget.AppCompatImageView  {
                 @Override
                 public void onSuccess(byte[] bytes) {
                     Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    // bmp = Bitmap.createScaledBitmap(bmp, 480, 240, false);
                     ObjeGorsel.this.setImageBitmap(bmp);
                 }
             }).addOnFailureListener(new OnFailureListener() {

@@ -108,6 +108,8 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
 
     String ad,soyad,adres,telefon,kullaniciAdi,sosyalMedya,email,resimKey;
 
+    public static Birey newBirey = new Birey();
+    String resimKey2;
 
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
@@ -153,9 +155,6 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
         return RootView;
     }
 
-    public static Birey newBirey = new Birey();
-    String resimKey2;
-
 
     @Override
     public void onClick(View view) {
@@ -189,13 +188,17 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
 
             data1.child("sosyalMedya").setValue(editTextProfiliDuzenleSosyalmedyatut);
 
-            if(imageViewProfiliDuzenle.getDrawable() != null ){
+            System.out.println("aaa"+resimKey);
 
-                data1.child("resimKey").setValue(user.getUid()+".jpg");
-                resimKey2 = (user.getUid()+".jpg");
-            }else{
-                resimKey2 = " ";
-            }
+                if (imageViewProfiliDuzenle.getDrawable() != null || resimKey != " ") {
+
+                    data1.child("resimKey").setValue(user.getUid() + ".jpg");
+                    resimKey2 = (user.getUid() + ".jpg");
+
+                } else {
+                    resimKey2 = " ";
+                }
+
 
             newBirey = new Birey(editTextProfiliDuzenleAdtut,editTextProfiliDuzenleSoyadtut,editTextProfiliDuzenleAdrestut,editTextProfiliDuzenleTelefontut,editTextProfiliDuzenleKullaniciaditut,editTextProfiliDuzenleSosyalmedyatut,editTextProfiliDuzenleEmailtut,resimKey2,user.getUid());
 

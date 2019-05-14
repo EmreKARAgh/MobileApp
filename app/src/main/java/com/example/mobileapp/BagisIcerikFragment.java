@@ -131,7 +131,6 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
                 @Override
                 public void onSuccess(byte[] bytes) {
                     Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    bmp = Bitmap.createScaledBitmap(bmp, 480, 240, false);
                     BagisIcerikFragment.this.imageViewBagisIcerikResim.setImageBitmap(bmp);
                 }
             }).addOnFailureListener(new OnFailureListener() {

@@ -34,10 +34,11 @@
     <string name="textviewKurumsalKaydolKurumadi">KURUM ADI :</string>
     <string name="textviewKurumsalKaydolFotograf">FOTOĞRAF :</string>
     <string name="textviewKurumsalKaydolKurumno">KURUM NO :</string>
-    <string name="textviewKurumsalKaydolEmail">E-MAİL:</string>
+    <string name="textviewKurumsalKaydolEmail">E-MAİL* :</string>
     <string name="textviewKurumsalKaydolAdres">ADRES :</string>
     <string name="textviewKurumsalKaydolTelefon">TELEFON :</string>
-    <string name="textviewKurumsalKaydolSifre">ŞİFRE :</string>
+    <string name="textviewKurumsalKaydolSifre">ŞİFRE* :</string>
+    <string name="textviewKurumsalKaydolSifreDogrula">ŞİFRE DOĞRULA*:</string>
     <string name="textviewKurumsalKaydolSosyalmedya">SOSYAL MEDYA :</string>
     <string name="buttonKurumsalKaydolKayitol">KAYIT OL</string>
     <string-array name="spinnerGiris">

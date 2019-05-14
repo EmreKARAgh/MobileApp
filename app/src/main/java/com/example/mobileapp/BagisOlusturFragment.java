@@ -304,7 +304,18 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
+                    Toast.makeText(getContext(),"File Uploaded", Toast.LENGTH_LONG).show();
+                    if(Anasayfa.kullaniciTipi.equals("Kurumsal")){
+                        if(!isNetworkAvailable(getContext())) {
+                            Toast.makeText(getContext(),"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
+                        }else{
+                            dbBagisEkleKurumsal(true);}
+                    }else{
+                        if(!isNetworkAvailable(getContext())) {
+                            Toast.makeText(getContext(),"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
+                        }else{
+                            dbBagisEkleBireysel(true);}
+                    }
                 }
             });
 

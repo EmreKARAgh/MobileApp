@@ -107,11 +107,6 @@
                 android:ems="10"
                 android:inputType="textPassword" />
 
-            <!--
-
-            alttaki şifre doğrula üstteki şifre isteme
-
-             -->
 
             <TextView
                 android:id="@+id/textviewBireyselKaydolSifreDogrula"

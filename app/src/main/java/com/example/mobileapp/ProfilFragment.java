@@ -130,7 +130,6 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
                 @Override
                 public void onSuccess(byte[] bytes) {
                     Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    bmp = Bitmap.createScaledBitmap(bmp, 480, 240, false);
                     imageView.setImageBitmap(bmp);
                 }
             }).addOnFailureListener(new OnFailureListener() {

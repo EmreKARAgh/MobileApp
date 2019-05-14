@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textEmailAddress" />
 
             <TextView
                 android:id="@+id/textviewKurumsalKaydolAdres"
@@ -89,6 +89,19 @@
 
             <EditText
                 android:id="@+id/edittextKurumsalKaydolSifre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/textviewKurumsalKaydolSifreDogrula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textviewKurumsalKaydolSifreDogrula" />
+
+            <EditText
+                android:id="@+id/edittextKurumsalKaydolSifreDogrula"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

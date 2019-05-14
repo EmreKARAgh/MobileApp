@@ -1,6 +1,8 @@
 package com.example.mobileapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -88,24 +90,33 @@ public class Giris extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId() == buttonGirisGiris.getId()){
 
-            edittextGirisKullaniciaditut = edittextGirisKullaniciadi.getText().toString(); //Kullanıcı adını Tut
-            edittextGirisSifretut = edittextGirisSifre.getText().toString(); //Şifreyi Tut
-            try{
-                signIn(edittextGirisKullaniciaditut,edittextGirisSifretut);
-                FirebaseUser user = mAuth.getCurrentUser();
+            if(!isNetworkAvailable(this)) {
+                Toast.makeText(this,"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
+            }else {
 
-            }
-            catch (Exception e){
-                e.printStackTrace();
-                return;
-            }
+                edittextGirisKullaniciaditut = edittextGirisKullaniciadi.getText().toString(); //Kullanıcı adını Tut
+                edittextGirisSifretut = edittextGirisSifre.getText().toString(); //Şifreyi Tut
+                try {
+                    signIn(edittextGirisKullaniciaditut, edittextGirisSifretut);
+                    FirebaseUser user = mAuth.getCurrentUser();
 
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
 
         }
 
     }
 
-
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(conMan.getActiveNetworkInfo() != null && conMan.getActiveNetworkInfo().isConnected())
+            return true;
+        else
+            return false;
+    }
 
     private void verileriCekBireysel(final String Uid){
         FirebaseDatabase db = FirebaseDatabase.getInstance();

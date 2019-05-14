@@ -1,10 +1,12 @@
 package com.example.mobileapp;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -130,35 +132,29 @@ public class BireyselKaydol extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        edittextBireyselKaydolSifretut = edittextBireyselKaydolSifre.getText().toString();
-        edittextBireyselKaydolSifreDogrulamatut = editTextBireyselKaydolSifreDogrulama.getText().toString();
 
         if(v.getId() == buttonBireyselKaydolKayitol.getId()){
 
+            edittextBireyselKaydolEmailtut = edittextBireyselKaydolEmail.getText().toString(); //Email tut
+            edittextBireyselKaydolSifretut = edittextBireyselKaydolSifre.getText().toString();
+            edittextBireyselKaydolSifreDogrulamatut = editTextBireyselKaydolSifreDogrulama.getText().toString();
+
             if(!(edittextBireyselKaydolSifreDogrulamatut.equals(edittextBireyselKaydolSifretut))){
-
-
-
                 Toast.makeText(getApplicationContext(),"Girilen Şifreler Eşleşmiyor!",Toast.LENGTH_LONG).show();
-
-
-            }else{
-
-
-                edittextBireyselKaydolEmailtut = edittextBireyselKaydolEmail.getText().toString(); //Email tut
-                edittextBireyselKaydolSifretut = edittextBireyselKaydolSifre.getText().toString();//Şifreyi tut
-                if(edittextBireyselKaydolEmailtut.equals("") && edittextBireyselKaydolSifretut.equals("")){
-                    Toast.makeText(getApplicationContext(),"Email ve Şifre Giriniz.",Toast.LENGTH_LONG).show();
-                }else{
-                    createAccount(edittextBireyselKaydolEmailtut,edittextBireyselKaydolSifretut);
+                return;
+            }
+            else{
+                if(!isNetworkAvailable(this)) {
+                    Toast.makeText(this, "Internet Baglantinizi Kontrol Edin", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    if(edittextBireyselKaydolEmailtut.equals("") && edittextBireyselKaydolSifretut.equals("")){
+                        Toast.makeText(getApplicationContext(),"Email ve Şifre Giriniz.",Toast.LENGTH_LONG).show();
+                    }else{
+                        createAccount(edittextBireyselKaydolEmailtut,edittextBireyselKaydolSifretut);
+                    }
                 }
             }
-
-
-
-
-
-
         }
 
         else if(v.getId() == buttonBireyselKaydolFotograf.getId()){
@@ -210,6 +206,7 @@ public class BireyselKaydol extends AppCompatActivity implements View.OnClickLis
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
+                            Toast.makeText(getApplicationContext(), "Giriş Yapılıyor Lütfen Bekleyiniz.", Toast.LENGTH_LONG).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                             pushUser2DB(user.getUid(),user.getEmail());
                         } else {
@@ -227,11 +224,24 @@ public class BireyselKaydol extends AppCompatActivity implements View.OnClickLis
                             if(kelime[1].equals(" The given password is invalid. [ Password should be at least 6 characters ]")){
                                 Toast.makeText(getApplicationContext(),"Şifre En Az 6 Haneli Olmalı.",Toast.LENGTH_LONG).show();
                             }
+
+                            if(kelime[1].equals(" The email address is already in use by another account.")){
+                                Toast.makeText(getApplicationContext(),"Bu Mail Adresi ile Başka Bir Kayıt Bulunmaktadır.",Toast.LENGTH_LONG).show();
+                            }
+
                         }
 
                         // ...
                     }
                 });
+    }
+
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(conMan.getActiveNetworkInfo() != null && conMan.getActiveNetworkInfo().isConnected())
+            return true;
+        else
+            return false;
     }
 
     protected void onActivityResult(int requestCode,int resultCode, Intent data){
