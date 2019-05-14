@@ -114,6 +114,18 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPassword" />
+                <TextView
+                    android:id="@+id/textViewProfiliDuzenleKurumsalSifreDogrula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textViewProfiliDuzenleKurumsalSifreDogrula" />
+
+                <EditText
+                    android:id="@+id/editTextProfiliDuzenleKurumsalSifreDogrula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPassword" />
 
                 <Button
                     android:id="@+id/buttonProfiliDuzenleKurumsalKurumFotograf"

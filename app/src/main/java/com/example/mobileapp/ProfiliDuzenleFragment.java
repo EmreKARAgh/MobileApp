@@ -93,13 +93,13 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
 
     EditText editTextProfiliDuzenleAd,editTextProfiliDuzenleSoyad,editTextProfiliDuzenleEmail,
             editTextProfiliDuzenleTelefon,editTextProfiliDuzenleSifre,editTextProfiliDuzenleKullaniciadi,
-            editTextProfiliDuzenleAdres,editTextProfiliDuzenleSosyalmedya;
+            editTextProfiliDuzenleAdres,editTextProfiliDuzenleSosyalmedya, editTextProfiliDuzenleSifreDogrula;
 
     ImageView imageViewProfiliDuzenle;
 
     String editTextProfiliDuzenleAdtut,editTextProfiliDuzenleSoyadtut,editTextProfiliDuzenleEmailtut,
             editTextProfiliDuzenleTelefontut,editTextProfiliDuzenleSifretut,editTextProfiliDuzenleKullaniciaditut,
-            editTextProfiliDuzenleAdrestut,editTextProfiliDuzenleSosyalmedyatut;
+            editTextProfiliDuzenleAdrestut,editTextProfiliDuzenleSosyalmedyatut,editTextProfiliDuzenleSifreDogrulatut;
 
     Button buttonProfiliDuzenleGuncelle,buttonProfiliDuzenleFotograf;
 
@@ -132,6 +132,7 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
         editTextProfiliDuzenleAdres=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleAdres);
         editTextProfiliDuzenleSosyalmedya=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleSosyalmedya);
         editTextProfiliDuzenleSifre=(EditText)RootView.findViewById(R.id.editTextProfiliDuzenleSifre);
+        editTextProfiliDuzenleSifreDogrula = (EditText) RootView.findViewById(R.id.editTextProfiliDuzenleSifreDogrula);
         imageViewProfiliDuzenle=(ImageView)RootView.findViewById(R.id.imageViewProfiliDuzenle);
         buttonProfiliDuzenleGuncelle=(Button)RootView.findViewById(R.id.buttonProfiliDuzenleGuncelle);
         buttonProfiliDuzenleGuncelle.setOnClickListener(this);
@@ -161,6 +162,12 @@ public class ProfiliDuzenleFragment extends Fragment implements View.OnClickList
             editTextProfiliDuzenleSosyalmedyatut = editTextProfiliDuzenleSosyalmedya.getText().toString();
             editTextProfiliDuzenleEmailtut = editTextProfiliDuzenleEmail.getText().toString();
             editTextProfiliDuzenleSifretut = editTextProfiliDuzenleSifre.getText().toString();
+            editTextProfiliDuzenleSifreDogrulatut = editTextProfiliDuzenleSifreDogrula.getText().toString();
+
+            if (!(editTextProfiliDuzenleSifreDogrulatut.equals(editTextProfiliDuzenleSifretut))){
+                Toast.makeText(getContext(),"Girilen Şifreler Eşleşmiyor!",Toast.LENGTH_LONG).show();
+                return;
+            }
 
             DatabaseReference data1 = db.getReference().child("Kullanicilar").child("Bireysel").child(user.getUid());
 

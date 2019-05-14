@@ -126,8 +126,6 @@ public class BireyselKaydol extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        System.out.println(" şifre=  "+edittextBireyselKaydolSifre.getText());
-        System.out.println(" şifre dogrula=  "+editTextBireyselKaydolSifreDogrulama.getText());
 
         edittextBireyselKaydolSifretut = edittextBireyselKaydolSifre.getText().toString();
         edittextBireyselKaydolSifreDogrulamatut = editTextBireyselKaydolSifreDogrulama.getText().toString();
@@ -138,7 +136,7 @@ public class BireyselKaydol extends AppCompatActivity implements View.OnClickLis
 
 
 
-                Toast.makeText(getApplicationContext(),"Girilen Şifreler Birbirini Tutmuyo Hayırdır.",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Girilen Şifreler Eşleşmiyor!",Toast.LENGTH_LONG).show();
 
 
             }else{

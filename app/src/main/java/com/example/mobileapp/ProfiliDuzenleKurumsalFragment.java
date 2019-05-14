@@ -93,14 +93,14 @@ public class ProfiliDuzenleKurumsalFragment extends Fragment implements View.OnC
     EditText editTextProfiliDuzenleKurumsalKurumAd,editTextProfiliDuzenleKurumsalKurumNo,
             editTextProfiliDuzenleKurumsalTelefon,editTextProfiliDuzenleKurumsalSifre,
             editTextProfiliDuzenleKurumsalAdres,editTextProfiliDuzenleKurumsalSosyalmedya,
-            editTextProfiliDuzenleKurumsalEmail;
+            editTextProfiliDuzenleKurumsalEmail,editTextProfiliDuzenleSifreDogrula;
 
     ImageView imageViewProfiliDuzenleKurumsal;
 
     String editTextProfiliDuzenleKurumsalKurumAdtut,editTextProfiliDuzenleKurumsalKurumNotut,
             editTextProfiliDuzenleKurumsalTelefontut,editTextProfiliDuzenleKurumsalSifretut,
             editTextProfiliDuzenleKurumsalAdrestut,editTextProfiliDuzenleKurumsalSosyalmedyatut,
-            editTextProfiliDuzenleKurumsalEmailtut;
+            editTextProfiliDuzenleKurumsalEmailtut,editTextProfiliDuzenleKurumsalSifreDogrulatut;
 
     Button buttonProfiliDuzenleKurumsalGuncelle,buttonProfiliDuzenleKurumsalFotograf;
 
@@ -130,6 +130,7 @@ public class ProfiliDuzenleKurumsalFragment extends Fragment implements View.OnC
         editTextProfiliDuzenleKurumsalKurumNo = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalKurumNo);
         editTextProfiliDuzenleKurumsalTelefon = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalTelefon);
         editTextProfiliDuzenleKurumsalSifre = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalSifre);
+        editTextProfiliDuzenleSifreDogrula = (EditText) RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalSifreDogrula);
         editTextProfiliDuzenleKurumsalAdres = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalAdres);
         editTextProfiliDuzenleKurumsalSosyalmedya = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalSosyalmedya);
         editTextProfiliDuzenleKurumsalEmail = (EditText)RootView.findViewById(R.id.editTextProfiliDuzenleKurumsalEmail);
@@ -161,6 +162,13 @@ public class ProfiliDuzenleKurumsalFragment extends Fragment implements View.OnC
             editTextProfiliDuzenleKurumsalAdrestut = editTextProfiliDuzenleKurumsalAdres.getText().toString();
             editTextProfiliDuzenleKurumsalSosyalmedyatut = editTextProfiliDuzenleKurumsalSosyalmedya.getText().toString();
             editTextProfiliDuzenleKurumsalEmailtut = editTextProfiliDuzenleKurumsalEmail.getText().toString();
+            editTextProfiliDuzenleKurumsalSifreDogrulatut = editTextProfiliDuzenleSifreDogrula.getText().toString();
+
+
+            if (!(editTextProfiliDuzenleKurumsalSifreDogrulatut.equals(editTextProfiliDuzenleKurumsalSifretut))){
+                Toast.makeText(getContext(),"Girilen Şifreler Eşleşmiyor!",Toast.LENGTH_LONG).show();
+                return;
+            }
 
             DatabaseReference data1 = db.getReference().child("Kullanicilar").child("Kurumsal").child(user.getUid());
 
