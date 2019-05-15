@@ -25,7 +25,10 @@
             <TextView
                 android:id="@+id/textViewBagislarimTampon"
                 android:layout_width="match_parent"
-                android:layout_height="100dp" />
+                android:layout_height="100dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
         </LinearLayout>
     </ScrollView>
 

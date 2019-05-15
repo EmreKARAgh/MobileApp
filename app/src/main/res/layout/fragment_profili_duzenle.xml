@@ -27,7 +27,10 @@
                     android:id="@+id/textViewProfiliDuzenleAd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleAd" />
+                    android:text="@string/textViewProfiliDuzenleAd"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleAd"
@@ -41,7 +44,10 @@
                     android:id="@+id/textViewProfiliDuzenleSoyad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleSoyad" />
+                    android:text="@string/textViewProfiliDuzenleSoyad"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleSoyad"
@@ -55,7 +61,10 @@
                     android:id="@+id/textViewProfiliDuzenleAdres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleAdres" />
+                    android:text="@string/textViewProfiliDuzenleAdres"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleAdres"
@@ -69,7 +78,10 @@
                     android:id="@+id/textViewProfiliDuzenleTelefon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleTelefon" />
+                    android:text="@string/textViewProfiliDuzenleTelefon"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleTelefon"
@@ -83,7 +95,10 @@
                     android:id="@+id/textViewProfiliDuzenleKullaniciAdi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleKullanıcıAdı" />
+                    android:text="@string/textViewProfiliDuzenleKullanıcıAdı"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleKullaniciadi"
@@ -97,7 +112,10 @@
                     android:id="@+id/textViewProfiliDuzenleSosyalmedya"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleSosyalmedya" />
+                    android:text="@string/textViewProfiliDuzenleSosyalmedya"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleSosyalmedya"
@@ -111,7 +129,10 @@
                     android:id="@+id/textViewProfiliDuzenleEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleEmail" />
+                    android:text="@string/textViewProfiliDuzenleEmail"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleEmail"
@@ -125,7 +146,10 @@
                     android:id="@+id/textViewProfiliDuzenleSifre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleSifre" />
+                    android:text="@string/textViewProfiliDuzenleSifre"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleSifre"
@@ -137,7 +161,10 @@
                     android:id="@+id/textViewProfiliDuzenleSifreDogrula"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleSifreDogrula" />
+                    android:text="@string/textViewProfiliDuzenleSifreDogrula"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleSifreDogrula"

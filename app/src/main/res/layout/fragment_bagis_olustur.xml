@@ -28,7 +28,10 @@
                     android:id="@+id/textviewBagisOlusturBaslik"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textviewBagisOlusturBaslik" />
+                    android:text="@string/textviewBagisOlusturBaslik"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextBagisOlusturBaslik"
@@ -44,7 +47,10 @@
                     android:id="@+id/textviewBagisOlusturFotograf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textviewBagisOlusturFotograf" />
+                    android:text="@string/textviewBagisOlusturFotograf"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <ImageView
                     android:id="@+id/imageviewBagisOlusturFotograf"
@@ -62,7 +68,10 @@
                     android:id="@+id/textviewBagisOlusturBilgi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textviewBagisOlusturBilgi" />
+                    android:text="@string/textviewBagisOlusturBilgi"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextBagisOlusturBilgi"
@@ -77,7 +86,10 @@
                     android:id="@+id/textviewBagisOlusturSmsAdres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textviewBagisOlusturSmsAdres" />
+                    android:text="@string/textviewBagisOlusturSmsAdres"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextBagisOlusturSmsAdres"
@@ -92,7 +104,10 @@
                     android:id="@+id/textviewBagisOlusturSmsMetin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textviewBagisOlusturSmsMetin" />
+                    android:text="@string/textviewBagisOlusturSmsMetin"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextBagisOlusturSmsMetin"
@@ -107,7 +122,10 @@
                     android:id="@+id/textviewBagisOlusturOzet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textviewBagisOlusturOzet" />
+                    android:text="@string/textviewBagisOlusturOzet"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextBagisOlusturOzet"
@@ -130,7 +148,10 @@
             <TextView
                 android:id="@+id/textViewBagisOlusturTampon"
                 android:layout_width="match_parent"
-                android:layout_height="100dp" />
+                android:layout_height="100dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
         </LinearLayout>
     </ScrollView>
 

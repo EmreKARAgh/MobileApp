@@ -33,7 +33,10 @@
                     <TextView
                         android:id="@+id/textViewBagisIcerikBaslik"
                         android:layout_width="316dp"
-                        android:layout_height="100dp" />
+                        android:layout_height="100dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:textColor="#FF012E16"
+                        />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -45,7 +48,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="   SMS" />
+                            android:text="   SMS"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:textColor="#FF012E16"
+                            />
 
                         <android.support.design.widget.FloatingActionButton
                             android:id="@+id/floatingActionButtonSms"
@@ -67,12 +73,18 @@
                 <TextView
                     android:id="@+id/textViewBagisIcerikBilgi"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp" />
+                    android:layout_height="100dp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <TextView
                     android:id="@+id/textViewBagisIcerikKurum"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp" />
+                    android:layout_height="100dp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <Button
                     android:id="@+id/buttonBagisIcerikBagisYap"
@@ -92,7 +104,10 @@
             <TextView
                 android:id="@+id/textViewBagisIcerikTampon"
                 android:layout_width="match_parent"
-                android:layout_height="100dp" />
+                android:layout_height="100dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
         </LinearLayout>
     </ScrollView>
 

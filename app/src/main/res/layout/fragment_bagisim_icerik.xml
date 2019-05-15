@@ -27,7 +27,10 @@
                 <TextView
                     android:id="@+id/textViewBagisimIcerikBaslik"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp" />
+                    android:layout_height="100dp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <ImageView
                     android:id="@+id/imageViewBagisimIcerikResim"
@@ -38,7 +41,10 @@
                 <TextView
                     android:id="@+id/textViewBagisimIcerikBilgi"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp" />
+                    android:layout_height="100dp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <TextView
                     android:id="@+id/textViewBagisimIcerikKurum"
@@ -55,12 +61,18 @@
                         android:layout_width="165dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Toplam Bağış Tutarı: " />
+                        android:text="Toplam Bağış Tutarı: "
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="#FF012E16"
+                        />
 
                     <TextView
                         android:id="@+id/textViewBagisimIcerikBagisTutari"
                         android:layout_width="245dp"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="#FF012E16"
+                        />
 
                 </LinearLayout>
 
@@ -88,7 +100,10 @@
             <TextView
                 android:id="@+id/textViewBagisimIcerikTampon"
                 android:layout_width="match_parent"
-                android:layout_height="100dp" />
+                android:layout_height="100dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
         </LinearLayout>
     </ScrollView>
 

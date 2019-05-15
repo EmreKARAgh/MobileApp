@@ -24,7 +24,9 @@
                     android:id="@+id/textViewBagisGuncelleBaslik"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewBagisGuncelleBaslik" />
+                    android:text="@string/textViewBagisGuncelleBaslik"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"/>
 
                 <EditText
                     android:id="@+id/editTextBagisGuncelleBaslik"
@@ -38,7 +40,10 @@
                     android:id="@+id/textViewBagisGuncelleFotograf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewBagisGuncelleFotograf" />
+                    android:text="@string/textViewBagisGuncelleFotograf"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <ImageView
                     android:id="@+id/imageViewBagisGuncelle"
@@ -56,7 +61,10 @@
                     android:id="@+id/textViewBagisGuncelleBilgi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewBagisGuncelleBilgi" />
+                    android:text="@string/textViewBagisGuncelleBilgi"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextBagisGuncelleBilgi"
@@ -84,7 +92,10 @@
                     android:id="@+id/textViewBagisGuncelleSmsMetni"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewBagisGuncelleSmsMetni" />
+                    android:text="@string/textViewBagisGuncelleSmsMetni"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextBagisGuncelleSmsMetni"
@@ -98,7 +109,10 @@
                     android:id="@+id/textViewBagisGuncelleOzet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewBagisGuncelleOzet" />
+                    android:text="@string/textViewBagisGuncelleOzet"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextBagisGuncelleOzet"

@@ -29,7 +29,10 @@
                 <TextView
                     android:id="@+id/textViewBagiscilariGosterTampon"
                     android:layout_width="match_parent"
-                    android:layout_height="730dp" />
+                    android:layout_height="730dp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
 
             </LinearLayout>

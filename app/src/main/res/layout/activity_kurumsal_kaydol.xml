@@ -20,33 +20,42 @@
                 android:id="@+id/textviewKurumsalKaydolKurumadi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumsalKaydolKurumadi" />
+                android:text="@string/textviewKurumsalKaydolKurumadi"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"/>
 
             <EditText
                 android:id="@+id/edittextKurumsalKaydolKurumadi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                />
 
             <TextView
                 android:id="@+id/textviewKurumsalKaydolKurumno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumsalKaydolKurumno" />
+                android:text="@string/textviewKurumsalKaydolKurumno"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"/>
 
             <EditText
                 android:id="@+id/edittextKurumsalKaydolKurumno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                />
 
             <TextView
                 android:id="@+id/textviewKurumsalKaydolEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumsalKaydolEmail" />
+                android:text="@string/textviewKurumsalKaydolEmail"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <EditText
                 android:id="@+id/edittextKurumsalKaydolEmail"
@@ -59,7 +68,10 @@
                 android:id="@+id/textviewKurumsalKaydolAdres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumsalKaydolAdres" />
+                android:text="@string/textviewKurumsalKaydolAdres"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <EditText
                 android:id="@+id/edittextKurumsalKaydolAdres"
@@ -72,7 +84,10 @@
                 android:id="@+id/textviewKurumsalKaydolTelefon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumsalKaydolTelefon" />
+                android:text="@string/textviewKurumsalKaydolTelefon"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <EditText
                 android:id="@+id/edittextKurumsalKaydolTelefon"
@@ -85,7 +100,10 @@
                 android:id="@+id/textviewKurumsalKaydolSifre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumsalKaydolSifre" />
+                android:text="@string/textviewKurumsalKaydolSifre"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <EditText
                 android:id="@+id/edittextKurumsalKaydolSifre"
@@ -98,7 +116,10 @@
                 android:id="@+id/textviewKurumsalKaydolSifreDogrula"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumsalKaydolSifreDogrula" />
+                android:text="@string/textviewKurumsalKaydolSifreDogrula"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <EditText
                 android:id="@+id/edittextKurumsalKaydolSifreDogrula"
@@ -111,26 +132,36 @@
                 android:id="@+id/textviewKurumsalKaydolSosyalmedya"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumsalKaydolSosyalmedya" />
+                android:text="@string/textviewKurumsalKaydolSosyalmedya"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <EditText
                 android:id="@+id/edittextKurumsalKaydolSosyalmedya"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/textviewKurumsalKaydolFotograf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/textviewKurumsalKaydolFotograf" />
+                android:inputType="textPersonName"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <Button
                 android:id="@+id/buttonKurumsalKaydolFotograf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/buttonKurumsalKaydolFotograf" />
+                android:text="@string/buttonKurumsalKaydolFotograf"
+                />
+
+            <TextView
+                android:id="@+id/textviewKurumsalKaydolFotograf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textviewKurumsalKaydolFotograf"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <ImageView
                 android:id="@+id/imageviewKurumsalKaydolFotograf"
@@ -142,7 +173,9 @@
                 android:id="@+id/buttonKurumsalKaydolKayitol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/buttonKurumsalKaydolKayitol" />
+                android:text="@string/buttonKurumsalKaydolKayitol"
+
+                />
 
         </LinearLayout>
     </ScrollView>

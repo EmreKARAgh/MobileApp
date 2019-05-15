@@ -165,7 +165,8 @@
                 android:id="@+id/buttonBireyselKaydolFotograf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/buttonBireyselKaydolFotograf" />
+                android:text="@string/buttonBireyselKaydolFotograf"
+                />
 
             <ImageView
                 android:id="@+id/imageviewBireyselKaydolFotograf"

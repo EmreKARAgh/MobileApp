@@ -30,46 +30,69 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="KURUM ADI" />
+                android:text="KURUM ADI"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <TextView
                 android:id="@+id/textviewKurumDetaySosyalmedya"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumDetaySosyalmedya" />
+                android:text="@string/textviewKurumDetaySosyalmedya"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <TextView
                 android:id="@+id/textviewKurumDetaySosyalmedyaveri"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <TextView
                 android:id="@+id/textviewKurumDetayTelefon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumDetayTelefon" />
+                android:text="@string/textviewKurumDetayTelefon"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <TextView
                 android:id="@+id/textviewKurumDetayTelefonVeri"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <TextView
                 android:id="@+id/textviewKurumDetayKurumAdres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewKurumDetayKurumAdres" />
+                android:text="@string/textviewKurumDetayKurumAdres"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <TextView
                 android:id="@+id/textviewKurumDetayKurumAdresiVeri"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16"
+                />
 
             <Button
                 android:id="@+id/buttonKurumDetayBagislar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="BAĞIŞLAR" />
+                android:text="BAĞIŞLAR"
+
+                />
 
         </LinearLayout>
     </ScrollView>

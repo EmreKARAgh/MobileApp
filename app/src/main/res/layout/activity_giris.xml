@@ -12,7 +12,11 @@
         android:id="@+id/textviewGirisKullaniciadi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/textviewGirisKullaniciadi" />
+        android:text="@string/textviewGirisKullaniciadi"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="#FF012E16"
+        />
+
 
     <EditText
         android:id="@+id/edittextGirisKullaniciadi"
@@ -25,7 +29,10 @@
         android:id="@+id/texttiewGirisSifre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/texttiewGirisSifre" />
+        android:text="@string/texttiewGirisSifre"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="#FF012E16"
+        />
 
     <EditText
         android:id="@+id/edittextGirisSifre"
@@ -38,13 +45,17 @@
         android:id="@+id/buttonGirisGiris"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/buttonGirisGiris" />
+        android:text="@string/buttonGirisGiris"
+        />
 
     <TextView
         android:id="@+id/textViewGirisSifremiUnuttum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/textViewSifremiUnuttum" />
+        android:text="@string/textViewSifremiUnuttum"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="#FF012E16"
+        />
 
 </LinearLayout>

@@ -144,13 +144,11 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
     }
 
     public void sms(){
-        System.out.println("sms: " + bagis.getSmsAdres());
         if(bagis.getSmsAdres()!= null){
-            Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-            smsIntent.setData(Uri.parse("sms:"));
-            smsIntent.putExtra("address", bagis.getSmsAdres());
-            smsIntent.putExtra("sms_body",bagis.getSmsMetin());
-            startActivity(smsIntent);
+            Uri uri = Uri.parse("smsto:"+ bagis.getSmsAdres());
+            Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+            intent.putExtra("sms_body", bagis.getSmsMetin());
+            startActivity(intent);
         }
     }
 
@@ -260,4 +258,6 @@ public class BagisIcerikFragment extends Fragment implements View.OnClickListene
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }

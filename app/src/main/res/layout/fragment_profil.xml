@@ -31,14 +31,18 @@
                 <TextView
                     android:id="@+id/textViewProfilTampon1"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+                    android:layout_height="50dp"
+                    />
 
                 <TextView
                     android:id="@+id/textviewProfilAdSoyad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Ad Soyad" />
+                    android:text="Ad Soyad"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <TextView
                     android:id="@+id/textViewProfilTampon2"
@@ -84,7 +88,7 @@
                         android:id="@+id/buttonProfilBagisOlustur"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Bagis Olustur" />
+                        android:text="BAGIS OLUSTUR" />
 
                     <Button
                         android:id="@+id/buttonProfilBagislarim"

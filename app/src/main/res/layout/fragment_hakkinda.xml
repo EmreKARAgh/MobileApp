@@ -10,6 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hakkinda"
-        android:textSize="35sp" />
+        android:textSize="35sp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="#FF012E16"
+        />
 
 </FrameLayout>

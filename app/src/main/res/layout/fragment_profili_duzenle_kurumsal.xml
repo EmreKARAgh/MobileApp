@@ -24,7 +24,10 @@
                     android:id="@+id/textViewProfiliDuzenleKurumsalKurumAd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleKurumsalKurumAd" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalKurumAd"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleKurumsalKurumAd"
@@ -38,7 +41,10 @@
                     android:id="@+id/textViewProfiliDuzenleKurumsalKurumNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/editTextProfiliDuzenleKurumsalKurumNo" />
+                    android:text="@string/editTextProfiliDuzenleKurumsalKurumNo"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleKurumsalKurumNo"
@@ -52,7 +58,10 @@
                     android:id="@+id/textViewProfiliDuzenleKurumsalAdres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleKurumsalAdres" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalAdres"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleKurumsalAdres"
@@ -66,7 +75,10 @@
                     android:id="@+id/textViewProfiliDuzenleKurumsalSosyalmedya"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleKurumsalSosyalmedya" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalSosyalmedya"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleKurumsalSosyalmedya"
@@ -80,7 +92,10 @@
                     android:id="@+id/textViewProfiliDuzenleKurumsalTelefon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleKurumsalTelefon" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalTelefon"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleKurumsalTelefon"
@@ -93,7 +108,10 @@
                     android:id="@+id/textViewProfiliDuzenleKurumsalEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleKurumsalEmail" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalEmail"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleKurumsalEmail"
@@ -106,7 +124,10 @@
                     android:id="@+id/textViewProfiliDuzenleKurumsalSifre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleKurumsalSifre" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalSifre"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleKurumsalSifre"
@@ -118,7 +139,10 @@
                     android:id="@+id/textViewProfiliDuzenleKurumsalSifreDogrula"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/textViewProfiliDuzenleKurumsalSifreDogrula" />
+                    android:text="@string/textViewProfiliDuzenleKurumsalSifreDogrula"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="#FF012E16"
+                    />
 
                 <EditText
                     android:id="@+id/editTextProfiliDuzenleKurumsalSifreDogrula"

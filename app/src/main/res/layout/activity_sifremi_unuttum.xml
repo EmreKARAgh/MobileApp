@@ -18,7 +18,9 @@
         android:id="@+id/textviewSifremiUnuttumEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/textviewSifremiUnuttumEmail" />
+        android:text="@string/textviewSifremiUnuttumEmail"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="#FF012E16"/>
 
     <EditText
         android:id="@+id/editTextSifremiUnuttumEmail"

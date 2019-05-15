@@ -20,7 +20,10 @@
             app:layout_constraintBottom_toBottomOf="@+id/textviewIstatistikBilgikutusu2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#FF012E16"
+            />
 
         <TextView
             android:id="@+id/textviewIstatistikBagisSayisi"
@@ -32,7 +35,10 @@
             android:text="*DEĞER*"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textviewIstatistikAdsoyad"
-            app:layout_constraintTop_toTopOf="@+id/textviewIstatistikBilgikutusu2" />
+            app:layout_constraintTop_toTopOf="@+id/textviewIstatistikBilgikutusu2"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#FF012E16"
+            />
 
         <TextView
             android:id="@+id/textviewIstatistikBilgikutusu"
@@ -43,7 +49,10 @@
             android:layout_marginTop="15dp"
             android:text="İSTATİSTİKLER"
             app:layout_constraintEnd_toEndOf="@+id/textviewIstatistikAdsoyad"
-            app:layout_constraintTop_toBottomOf="@+id/textviewIstatistikAdsoyad" />
+            app:layout_constraintTop_toBottomOf="@+id/textviewIstatistikAdsoyad"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#FF012E16"
+            />
 
         <TextView
             android:id="@+id/textviewIstatistikBilgikutusu2"
@@ -54,7 +63,10 @@
             android:text="Toplam Bağış Sayısı:"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#FF012E16"
+            />
 
         <TextView
             android:id="@+id/textviewIstatistikBilgikutusu3"
@@ -64,7 +76,10 @@
             android:layout_marginTop="18dp"
             android:text="Toplam Tutar:"
             app:layout_constraintEnd_toEndOf="@+id/textviewIstatistikBilgikutusu2"
-            app:layout_constraintTop_toBottomOf="@+id/textviewIstatistikBilgikutusu2" />
+            app:layout_constraintTop_toBottomOf="@+id/textviewIstatistikBilgikutusu2"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#FF012E16"
+            />
 
         <TextView
             android:id="@+id/textviewIstatistikToplamTutar"
@@ -74,7 +89,10 @@
             android:layout_marginTop="18dp"
             android:text="*DEĞER*"
             app:layout_constraintStart_toStartOf="@+id/textviewIstatistikBagisSayisi"
-            app:layout_constraintTop_toBottomOf="@+id/textviewIstatistikBagisSayisi" />
+            app:layout_constraintTop_toBottomOf="@+id/textviewIstatistikBagisSayisi"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#FF012E16"
+            />
 
     </android.support.constraint.ConstraintLayout>
 
