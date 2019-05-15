@@ -16,7 +16,6 @@
     <string name="textviewSifremiUnuttumGuvenliksorusu">GÜVENLİK SORUSU :</string>
     <string name="texttiewSifremiUnuttumGuvenlikcevabi">GUVENLİK SORUSU CEVABI :</string>
     <string name="buttonSifremiUnuttumGonder">GÖNDER</string>
-    <string name="textviewBireyselKaydolFotograf">FOTOĞRAF :</string>
     <string name="textviewBireyselKaydolAd">AD :</string>
     <string name="textviewBireyselKaydolSoyad">SOYAD :</string>
     <string name="textviewBireyselKaydolEmail">E-MAİL* :</string>
@@ -101,5 +100,6 @@
     <string name="textViewBagisGuncelleSmsMetni">SMS METNİ:</string>
     <string name="textViewBagisGuncelleOzet">ÖZET:</string>
     <string name="buttonBagisimIcerikBagisGuncelle">Bağışı Düzenle</string>
+    <string name="textviewBireyselKaydolFotograf">FOTOĞRAF :</string>
 
 </resources>

@@ -26,7 +26,6 @@ public class UygulamaGiris extends AppCompatActivity implements View.OnClickList
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     FirebaseUser user;
     DatabaseReference ref;
-
     String ad,soyad,adres,telefon,kullaniciAdi,sosyalMedya,email,resimKey;
     String kurumAdi,kurumNo;
 
@@ -44,29 +43,7 @@ public class UygulamaGiris extends AppCompatActivity implements View.OnClickList
 
 
 
-        if(user != null) {
 
-            ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    boolean check = dataSnapshot.child("Kullanicilar").child("Bireysel").child(user.getUid()).exists();
-                    if (check) {
-                        verileriCekBireysel(user.getUid());
-                        alertDialogGecis();
-                    } else {
-                        verileriCekKurumsal(user.getUid());
-                        alertDialogGecis();
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
-
-        }
 
 
         DatabaseReference okuBagislar = db.getReference().child("version");
@@ -80,12 +57,39 @@ public class UygulamaGiris extends AppCompatActivity implements View.OnClickList
                     alertDialog();
                 }
                 else{
+                    if(user != null) {
+
+                        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                boolean check = dataSnapshot.child("Kullanicilar").child("Bireysel").child(user.getUid()).exists();
+                                boolean check2 = dataSnapshot.child("Kullanicilar").child("Kurumsal").child(user.getUid()).exists();
+                                if (check) {
+                                    System.out.println("noluyor lan");
+                                    verileriCekBireysel(user.getUid());
+                                    alertDialogGecis();
+                                } if(check2){
+                                    System.out.println("noluyor lan2");
+                                    verileriCekKurumsal(user.getUid());
+                                    alertDialogGecis();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                    }
                     buttonUygulamaGirisGiris = (Button) findViewById(R.id.buttonUygulamaGirisGiris);
                     buttonUygulamaGirisGiris.setOnClickListener(UygulamaGiris.this);
                     buttonUygulamaGirisKayitol = (Button) findViewById(R.id.buttonUygulamaGirisKayitol);
                     buttonUygulamaGirisKayitol.setOnClickListener(UygulamaGiris.this);
                     buttonAdmin=(Button)findViewById(R.id.adminGiris);
                     buttonAdmin.setOnClickListener(UygulamaGiris.this);
+
                 }
             }
 

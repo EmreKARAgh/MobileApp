@@ -218,10 +218,12 @@ public class Giris extends AppCompatActivity implements View.OnClickListener {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     boolean check = dataSnapshot.child("Kullanicilar").child("Bireysel").child(user.getUid()).exists();
+                                    boolean check2 = dataSnapshot.child("Kullanicilar").child("Kurumsal").child(user.getUid()).exists();
                                     if(check){
+                                        System.out.println("aaaa");
                                         verileriCekBireysel(user.getUid());
                                     }
-                                    else{
+                                    if(check2){
                                         verileriCekKurumsal(user.getUid());
                                     }
                                 }

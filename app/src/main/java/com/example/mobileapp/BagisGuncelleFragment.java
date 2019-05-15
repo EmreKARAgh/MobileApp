@@ -117,7 +117,8 @@ public class BagisGuncelleFragment extends Fragment implements  View.OnClickList
     String editTextBagisGuncelleSmsMetintut;
     String editTextBagisGuncelleOzettut;
 
-    String baslik, bilgi,ozet, smsAdres, smsMetin;
+    String baslik, bilgi,ozet, smsAdres, smsMetin,resimKey;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -139,12 +140,12 @@ public class BagisGuncelleFragment extends Fragment implements  View.OnClickList
         buttonBagisGuncelleFotograf.setOnClickListener(this);
         imageviewBagisGuncelle = (ImageView)RootView.findViewById(R.id.imageViewBagisGuncelle);
 
-        verileriCekBireysel();
+        verileriCekBagis();
 
         return RootView;
     }
 
-    private void verileriCekBireysel(){
+    private void verileriCekBagis(){
         FirebaseDatabase db = FirebaseDatabase.getInstance();
 
         DatabaseReference okuBagislar =db.getReference().child("Bagislar").child(bagis.getBagisid());
@@ -166,6 +167,14 @@ public class BagisGuncelleFragment extends Fragment implements  View.OnClickList
 
                 smsMetin = dataSnapshot.child("smsMetin").getValue().toString();
                 editTextBagisGuncelleSmsMetin.setText(smsMetin);
+
+                resimKey = " ";
+
+                try {
+                    resimKey = dataSnapshot.child("resimKey").getValue().toString();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
 
 
             }
@@ -195,6 +204,10 @@ public class BagisGuncelleFragment extends Fragment implements  View.OnClickList
             data1.child("smsMetin").setValue(editTextBagisGuncelleSmsMetintut);
             data1.child("ozet").setValue(editTextBagisGuncelleOzettut);
 
+            if (imageviewBagisGuncelle.getDrawable() != null || resimKey != " ") {
+                data1.child("resimKey").setValue(bagis.bagisid + ".jpg");
+            }
+
             if(uploadFile()){
                 Toast.makeText(getContext(),"Verileriniz Güncellenmiştir.",Toast.LENGTH_LONG).show();
             }
@@ -207,6 +220,8 @@ public class BagisGuncelleFragment extends Fragment implements  View.OnClickList
             startActivityForResult(Intent.createChooser(intent,"Select Picture"),PICK_IMAGE_REQUEST);
         }
     }
+
+
 
 
     public void onActivityResult(int requestCode,int resultCode, Intent data){

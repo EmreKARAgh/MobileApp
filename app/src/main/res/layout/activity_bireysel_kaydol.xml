@@ -14,13 +14,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textviewBireyselKaydolAd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewBireyselKaydolAd" />
+                android:text="@string/textviewBireyselKaydolAd"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <EditText
                 android:id="@+id/edittextBireyselKaydolAd"
@@ -33,7 +35,9 @@
                 android:id="@+id/textviewBireyselKaydolSoyad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewBireyselKaydolSoyad" />
+                android:text="@string/textviewBireyselKaydolSoyad"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <EditText
                 android:id="@+id/edittextBireyselKaydolSoyad"
@@ -46,7 +50,9 @@
                 android:id="@+id/textviewBireyselKaydolEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewBireyselKaydolEmail" />
+                android:text="@string/textviewBireyselKaydolEmail"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <EditText
                 android:id="@+id/edittextBireyselKaydolEmail"
@@ -59,7 +65,9 @@
                 android:id="@+id/textviewBireyselKaydolAdres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewBireyselKaydolAdres" />
+                android:text="@string/textviewBireyselKaydolAdres"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <EditText
                 android:id="@+id/edittextBireyselKaydolAdres"
@@ -72,7 +80,9 @@
                 android:id="@+id/textviewBireyselKaydolTelefon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewBireyselKaydolTelefon" />
+                android:text="@string/textviewBireyselKaydolTelefon"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <EditText
                 android:id="@+id/edittextBireyselKaydolTelefon"
@@ -85,7 +95,9 @@
                 android:id="@+id/textviewBireyselKaydolKullaniciadi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewBireyselKaydolKullaniciadi" />
+                android:text="@string/textviewBireyselKaydolKullaniciadi"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <EditText
                 android:id="@+id/edittextBireyselKaydolKullaniciadi"
@@ -98,7 +110,9 @@
                 android:id="@+id/textviewBireyselKaydolSifre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewBireyselKaydolSifre" />
+                android:text="@string/textviewBireyselKaydolSifre"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <EditText
                 android:id="@+id/edittextBireyselKaydolSifre"
@@ -112,7 +126,9 @@
                 android:id="@+id/textviewBireyselKaydolSifreDogrula"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewBireyselKaydolSifreDogrula" />
+                android:text="@string/textviewBireyselKaydolSifreDogrula"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <EditText
                 android:id="@+id/edittextBireyselKaydolSifreDogrula"
@@ -126,7 +142,9 @@
                 android:id="@+id/textviewBireyselKaydolSosyalmedya"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textviewBireyselKaydolSosyalmedya" />
+                android:text="@string/textviewBireyselKaydolSosyalmedya"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <EditText
                 android:id="@+id/edittextBireyselKaydolSosyalmedya"
@@ -140,8 +158,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/textviewBireyselKaydolFotograf"
-                tools:layout_editor_absoluteX="104dp"
-                tools:layout_editor_absoluteY="55dp" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#FF012E16" />
 
             <Button
                 android:id="@+id/buttonBireyselKaydolFotograf"
