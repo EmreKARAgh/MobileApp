@@ -55,6 +55,8 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
     Bagis bagis;
     int bagisTutari;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
     private BagisimIcerikFragment.OnFragmentInteractionListener mListener;
 
@@ -159,6 +161,8 @@ public class BagisimIcerikFragment extends Fragment implements View.OnClickListe
                 DatabaseReference ref = db.getReference().child("Bagislar").child(this.bagis.getBagisid());
                 ref.removeValue();
                 final  BagislarimFragment bagislarimFragment = new BagislarimFragment();
+                DatabaseReference ref2 = db.getReference().child("Kullanicilar").child(Anasayfa.kullaniciTipi).child(user.getUid()).child("Bagislarim").child(this.bagis.getBagisid());
+                ref2.removeValue();
                 Toast.makeText(getContext(),"Bağış Başarıyla Silindi",Toast.LENGTH_LONG).show();
                 setFragment(bagislarimFragment);
             }

@@ -88,13 +88,13 @@
                         android:id="@+id/buttonProfilBagisOlustur"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="BAGIS OLUSTUR" />
+                        android:text="@string/buttonProfilBagisTaleplebiOlustur" />
 
                     <Button
                         android:id="@+id/buttonProfilBagislarim"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/buttonProfilBagislarim" />
+                        android:text="@string/buttonProfilBagisTaleplerim" />
 
                     <Button
                         android:id="@+id/buttonProfilCikisYap"

@@ -66,7 +66,8 @@
     <string name="textviewBagisOlusturSmsMetin">SMS METNİ :</string>
     <string name="textviewBagisOlusturOzet">ÖZET :</string>
     <string name="buttonBagisOlusturEkle">EKLE</string>
-    <string name="buttonProfilBagislarim">BAĞIŞLARIM</string>
+    <string name="buttonProfilBagisTaleplebiOlustur">BAĞIŞ TALEBİ OLUŞTUR</string>
+    <string name="buttonProfilBagisTaleplerim">BAĞIŞ TALEPLERİM</string>
     <string name="textviewSifremiUnuttumEmail">Email :</string>
     <string name="textViewSifremiUnuttum">Şifremi Unuttum</string>
     <string name="textViewProfiliDuzenleAd">AD:</string>

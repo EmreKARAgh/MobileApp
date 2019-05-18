@@ -145,7 +145,11 @@ public class BagisOlusturFragment extends Fragment implements  View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId() == buttonBagisOlusturOlustur.getId()) {
-            uploadFile();
+            if(!isNetworkAvailable(getContext())) {
+                Toast.makeText(getContext(),"Internet Baglantinizi Kontrol Edin",Toast.LENGTH_LONG).show();
+            }else {
+                uploadFile();
+            }
         }
         if(v.getId() == buttonBagisOlusturFotograf.getId()){
             Intent intent = new Intent();
