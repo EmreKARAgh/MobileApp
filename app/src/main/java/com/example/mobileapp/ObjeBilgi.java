@@ -43,4 +43,5 @@ public class ObjeBilgi extends android.support.v7.widget.AppCompatTextView {
         this.setTextColor(Color.parseColor("#aebeb4"));
         this.setBackgroundColor(Color.parseColor("#aebeb4"));
     }
+
 }

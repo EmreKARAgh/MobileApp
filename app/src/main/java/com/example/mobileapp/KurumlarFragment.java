@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.GridLayout;
 
 import com.google.firebase.database.ChildEventListener;
@@ -73,6 +76,7 @@ public class KurumlarFragment extends Fragment {
         }
     }
 
+
     private void verileriCek(){
         DatabaseReference okuKurumlar =db.getReference().child("Kullanicilar").child("Kurumsal");
 
@@ -91,8 +95,9 @@ public class KurumlarFragment extends Fragment {
 
                     Kurum kurum = new Kurum(kurumAdi,adres,kurumNo,telefon,sosyalMedya,email,resimKey,uid);
                     ObjeKart nesne = new ObjeKart(getContext(), kurum);
-                    nesne.setX(40);
-                    gridlayoutKurumlarFragment.addView(nesne,500,400);
+
+
+                    gridlayoutKurumlarFragment.addView(nesne);
                     nesne.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
