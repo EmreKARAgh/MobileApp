@@ -69,7 +69,7 @@ public class AnasayfaFragment extends Fragment {
         // Inflate the layout for this fragment
         View RootView = inflater.inflate(R.layout.fragment_anasayfa, container, false);
 
-        String yourHTML = "<a class=\"twitter-timeline\" href=\"https://twitter.com/karahatta/lists/emre-kara?ref_src=twsrc%5Etfw\" data-tweet-limit=\"50\">A Twitter List by karahatta</a> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
+        String yourHTML = "<a class=\"twitter-timeline\" data-lang=\"tr\" data-theme=\"light\" data-link-color=\"#19CF86\" href=\"https://twitter.com/karahatta/lists/kurum-ak?ref_src=twsrc%5Etfw\">A Twitter List by karahatta</a> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
         WebView webViewHeroes = (WebView) RootView.findViewById(R.id.webView);
         webViewHeroes.getSettings().setJavaScriptEnabled(true);
         webViewHeroes.loadData(yourHTML, "text/html", "utf-8");
