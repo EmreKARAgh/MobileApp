@@ -9,7 +9,7 @@
 
     <string name="buttonUygulamaGirisKayitol">KAYIT OL</string>
     <string name="buttonUygulamaGirisGiris">GİRİŞ</string>
-    <string name="textviewGirisKullaniciadi">KULLANICI ADI :</string>
+    <string name="textviewGirisEmail">E MAIL :</string>
     <string name="texttiewGirisSifre">ŞİFRE :</string>
     <string name="buttonGirisGiris">GİRİŞ</string>
     <string name="buttonGirisSifremiunuttum">Şifremi Unuttum</string>

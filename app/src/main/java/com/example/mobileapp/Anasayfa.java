@@ -82,7 +82,6 @@ public class Anasayfa extends AppCompatActivity
             }else
                 super.onBackPressed();
         }
-
     }
     public void minimizeApp() {
         Intent startMain = new Intent(Intent.ACTION_MAIN);

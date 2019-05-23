@@ -65,11 +65,9 @@ public class UygulamaGiris extends AppCompatActivity implements View.OnClickList
                                 boolean check = dataSnapshot.child("Kullanicilar").child("Bireysel").child(user.getUid()).exists();
                                 boolean check2 = dataSnapshot.child("Kullanicilar").child("Kurumsal").child(user.getUid()).exists();
                                 if (check) {
-                                    System.out.println("noluyor lan");
                                     verileriCekBireysel(user.getUid());
                                     alertDialogGecis();
                                 } if(check2){
-                                    System.out.println("noluyor lan2");
                                     verileriCekKurumsal(user.getUid());
                                     alertDialogGecis();
                                 }
@@ -152,6 +150,7 @@ public class UygulamaGiris extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+
 
 
     private void verileriCekKurumsal(final String Uid){

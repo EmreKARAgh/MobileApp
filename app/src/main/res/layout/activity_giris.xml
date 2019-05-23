@@ -12,10 +12,9 @@
         android:id="@+id/textviewGirisKullaniciadi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/textviewGirisKullaniciadi"
+        android:text="@string/textviewGirisEmail"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:textColor="#FF012E16"
-        />
+        android:textColor="#FF012E16" />
 
 
     <EditText
